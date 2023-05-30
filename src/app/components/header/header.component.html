@@ -16,7 +16,12 @@
     </ul>
 
     <div class="col-md-3 text-end">
-       <button type="button" class="btn btn-outline-primary me-2">Login</button>
+       <button type="button" class="btn btn-outline-primary me-2"
+       *ngIf="!loadingService.getLogin()"
+       >Ingresar</button>
+       <button type="button" class="btn btn-outline-primary me-2"
+       *ngIf="loadingService.getLogin()"
+       >Cerrar sesion</button>
      <!-- <button type="button" class="btn btn-primary">Sign-up</button>-->
     </div>
 
