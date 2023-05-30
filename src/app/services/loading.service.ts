@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class LoadingService {
-  urlBase = './data.json/login.json';
+  urlBase = '/assets/data.json/login.json';
   constructor(private httpClient: HttpClient) {}
   private logged: boolean = false;
 

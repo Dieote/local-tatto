@@ -1,3 +1,4 @@
+import { Login } from './../../modal/login.model';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingService } from 'src/app/services/loading.service';
@@ -16,10 +17,11 @@ export class HeaderComponent {
   });
 
   okLogin() {
+    //revisar este metodo
     const email = this.userForm.value.email || '';
     const password = this.userForm.value.password || '';
 
-    this.loadingService.getLoginJson().subscribe(() => {
+    this.loadingService.getLoginJson().subscribe((login) => {
       if (email == 'admin' && password == 'admin') {
         this.loadingService.setLogin(true);
       } else {

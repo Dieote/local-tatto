@@ -3,18 +3,18 @@ export class TattoMaker {
   description: string;
   image: string;
   phoneNumber: string;
-  avalible: boolean;
+  available: boolean;
   constructor(
     name: string,
     description: string,
     image: string,
     phoneNumber: string,
-    avalible: boolean
+    available: boolean
   ) {
     this.name = name;
     this.description = description;
     this.image = image;
     this.phoneNumber = phoneNumber;
-    this.avalible = avalible;
+    this.available = available;
   }
 }
