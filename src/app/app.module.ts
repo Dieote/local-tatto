@@ -13,6 +13,8 @@ import { ArtistComponent } from './components/artist/artist.component';
 import { ManagementButtonsComponent } from './components/management-buttons/management-buttons.component';
 import { ArtistsService } from './services/artists.service';
 import { CorrouselComponent } from './components/corrousel/corrousel.component';
+import { ArtistFormComponent } from './components/artist-form/artist-form.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { CorrouselComponent } from './components/corrousel/corrousel.component';
     ArtistComponent,
     ManagementButtonsComponent,
     CorrouselComponent,
+    ArtistFormComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [ArtistsService],
   bootstrap: [AppComponent],

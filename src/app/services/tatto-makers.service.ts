@@ -10,6 +10,7 @@ export class TattoMakersService {
   getTatuadores(): Observable<TattoMaker[]> {
     return of([
       new TattoMaker(
+        1,
         'Tatuador1',
         'Descripcion del tatuador1',
         'urlImagen',
@@ -17,6 +18,7 @@ export class TattoMakersService {
         true
       ),
       new TattoMaker(
+        2,
         'Tatuador2',
         'Descripcion del tatuador2',
         'urlImagen',
@@ -24,6 +26,7 @@ export class TattoMakersService {
         true
       ),
       new TattoMaker(
+        3,
         'Tatuador3',
         'Descripcion del tatuador3',
         'urlImagen',

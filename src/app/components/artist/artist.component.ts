@@ -8,15 +8,13 @@ import { ArtistsService } from 'src/app/services/artists.service';
   styleUrls: ['./artist.component.scss'],
 })
 export class ArtistComponent implements OnInit {
-  ngOnInit(): void {
-    this.getArtists();
-  }
   tatuadores: TattoMaker[] = [];
+
   constructor(private artistsService: ArtistsService) {}
 
-  getArtists() {
-    this.artistsService.verArtistas().subscribe((tattoMakers) => {
-      this.tatuadores = tattoMakers;
+  ngOnInit(): void {
+    this.artistsService.getArtists().subscribe((respons) => {
+      this.tatuadores = respons;
     });
   }
 }

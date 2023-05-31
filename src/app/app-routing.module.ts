@@ -5,6 +5,9 @@ const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
+  // path : artistForm , componet ArtispFormCompoent,
+  // path : artistForm/:id , componet ArtispFormCompoent,
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
