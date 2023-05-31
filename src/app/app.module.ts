@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { ManagementButtonsComponent } from './components/management-buttons/management-buttons.component';
 import { ArtistsService } from './services/artists.service';
+import { CorrouselComponent } from './components/corrousel/corrousel.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ArtistsService } from './services/artists.service';
     LoginComponent,
     ArtistComponent,
     ManagementButtonsComponent,
+    CorrouselComponent,
   ],
   imports: [
     HttpClientModule,
