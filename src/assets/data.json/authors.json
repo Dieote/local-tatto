@@ -4,20 +4,20 @@
     "name": "nombreA",
     "description": "descripcion aqui sobre el tatumaker",
     "phone": "1234567",
-    "available": true
+    "available": "Disponible L - J / 10hs a 12hs"
   },
   {
     "id": 2,
     "name": "nombreB",
     "description": "descripcion aqui sobre el tatumaker",
     "phone": "1234567",
-    "available": true
+    "available": "Disponible L - J / 10hs a 12hs"
   },
   {
     "id": 3,
     "name": "nombreC",
     "description": "descripcion aqui sobre el tatumaker",
     "phone": "1234567",
-    "available": true
+    "available": "Disponible L - J / 10hs a 12hs"
   }
 ]

@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TattoMaker } from 'src/app/modal/tattoMaker.model';
 import { ArtistsService } from 'src/app/services/artists.service';
 
@@ -7,7 +7,10 @@ import { ArtistsService } from 'src/app/services/artists.service';
   templateUrl: './artist.component.html',
   styleUrls: ['./artist.component.scss'],
 })
-export class ArtistComponent {
+export class ArtistComponent implements OnInit {
+  ngOnInit(): void {
+    this.getArtists();
+  }
   tatuadores: TattoMaker[] = [];
   constructor(private artistsService: ArtistsService) {}
 

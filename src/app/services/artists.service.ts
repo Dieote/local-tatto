@@ -11,4 +11,6 @@ export class ArtistsService {
   verArtistas() {
     return this.httpClient.get<TattoMaker[]>(this.urlBase);
   }
+
+  // crearARtista(artita:tatomaker)
 }
