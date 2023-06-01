@@ -1,19 +1,19 @@
 export class TattoMaker {
-  idArtist: number;
+  idArtist?: number;
   name: string;
   description: string;
   image: string;
   phone: string;
-  available: boolean;
+  available: string;
   constructor(
-    idArtist: number,
+    // idArtist: number,
     name: string,
     description: string,
     image: string,
     phone: string,
-    available: boolean
+    available: string
   ) {
-    this.idArtist = idArtist;
+    // this.idArtist = idArtist;
     this.name = name;
     this.description = description;
     this.image = image;

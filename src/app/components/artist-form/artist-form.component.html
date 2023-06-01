@@ -1,1 +1,29 @@
-<p>artist-form works!</p>
+<div class="container text-center">
+  <div class="row align-items-center">
+    <!-- <form (ngSubmit)="addTattoMaker()">  es lo mismo esto que poner click?-->
+    <form [formGroup]="form">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required /><br />
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required /><br />
+
+      <label for="descripcion">Descripcion:</label>
+      <input type="text" id="info" name="info" required /><br />
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required /><br />
+
+      <label for="disponible">Disponibilidad::</label>
+      <input type="text" id="horario" name="horario" required /><br />
+
+      <label for="imagen">Cargar imagen:</label>
+      <input type="file" id="imagen" name="imagen" />
+
+      <br />
+      <button type="submit" (click)="addTattoMaker()" class="btn btn-primary">
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>

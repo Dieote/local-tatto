@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { TattoMakersService } from './services/tatto-makers.service';
+import { CarrouselComponent } from './components/carrousel/carrousel.component';
+
+const routes: Routes = [
+  { path: '', component: CarrouselComponent },
+  { path: 'autor', component: TattoMakersService },
+  { path: 'autor/:id', component: TattoMakersService },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-
-  // path : artistForm , componet ArtispFormCompoent,
-  // path : artistForm/:id , componet ArtispFormCompoent,
 })
 export class AppRoutingModule {}

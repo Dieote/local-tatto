@@ -12,9 +12,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { ManagementButtonsComponent } from './components/management-buttons/management-buttons.component';
 import { ArtistsService } from './services/artists.service';
-import { CorrouselComponent } from './components/corrousel/corrousel.component';
 import { ArtistFormComponent } from './components/artist-form/artist-form.component';
 import { RouterModule } from '@angular/router';
+import { CarrouselComponent } from './components/carrousel/carrousel.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     ArtistComponent,
     ManagementButtonsComponent,
-    CorrouselComponent,
+    CarrouselComponent,
     ArtistFormComponent,
   ],
   imports: [

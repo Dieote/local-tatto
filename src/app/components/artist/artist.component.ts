@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TattoMaker } from 'src/app/modal/tattoMaker.model';
 import { ArtistsService } from 'src/app/services/artists.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist',
@@ -10,7 +11,10 @@ import { ArtistsService } from 'src/app/services/artists.service';
 export class ArtistComponent implements OnInit {
   tatuadores: TattoMaker[] = [];
 
-  constructor(private artistsService: ArtistsService) {}
+  constructor(
+    private artistsService: ArtistsService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.artistsService.getArtists().subscribe((respons) => {
