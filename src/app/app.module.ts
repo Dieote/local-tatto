@@ -15,6 +15,7 @@ import { ArtistsService } from './services/artists.service';
 import { ArtistFormComponent } from './components/artist-form/artist-form.component';
 import { RouterModule } from '@angular/router';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { StudioTattoComponent } from './components/studio-tatto/studio-tatto.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
     ManagementButtonsComponent,
     CarrouselComponent,
     ArtistFormComponent,
+    StudioTattoComponent,
   ],
   imports: [
     HttpClientModule,
