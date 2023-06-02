@@ -16,6 +16,7 @@ import { ArtistFormComponent } from './components/artist-form/artist-form.compon
 import { RouterModule } from '@angular/router';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { StudioTattoComponent } from './components/studio-tatto/studio-tatto.component';
+import { TattoMakersService } from './services/tatto-makers.service';
 
 @NgModule({
   declarations: [

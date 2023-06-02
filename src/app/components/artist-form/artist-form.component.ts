@@ -1,5 +1,5 @@
 import { ArtistsService } from './../../services/artists.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { TattoMaker } from 'src/app/modal/tattoMaker.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -11,9 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ArtistFormComponent implements OnInit {
   constructor(
-    private tattoMaker: TattoMaker,
     private artistsService: ArtistsService,
-    private router: Router,
     private route: ActivatedRoute
   ) {}
 
@@ -27,6 +25,7 @@ export class ArtistFormComponent implements OnInit {
   });
 
   ngOnInit() {
+    debugger;
     const idCoke = this.route.snapshot.params['id'];
   }
 

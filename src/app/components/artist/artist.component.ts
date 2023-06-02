@@ -13,6 +13,7 @@ export class ArtistComponent implements OnInit {
 
   constructor(
     private artistsService: ArtistsService,
+    private router: Router,
     private route: ActivatedRoute
   ) {}
 
