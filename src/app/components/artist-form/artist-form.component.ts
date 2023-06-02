@@ -1,3 +1,4 @@
+import { TattoMakersService } from './../../services/tatto-makers.service';
 import { ArtistsService } from './../../services/artists.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -10,6 +11,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./artist-form.component.scss'],
 })
 export class ArtistFormComponent implements OnInit {
+  artistas: TattoMaker[] = [];
+
+  idAuthor: number = 0;
   constructor(
     private artistsService: ArtistsService,
     private route: ActivatedRoute
@@ -25,8 +29,14 @@ export class ArtistFormComponent implements OnInit {
   });
 
   ngOnInit() {
-    debugger;
-    const idCoke = this.route.snapshot.params['id'];
+    this.idAuthor = this.route.snapshot.params['id'];
+    this.form.valueChanges.subscribe(console.log);
+  }
+
+  getArtist(): void {
+    this.artistsService.getArtists().subscribe((data) => {
+      this.artistas = data;
+    });
   }
 
   addTattoMaker() {
@@ -40,6 +50,18 @@ export class ArtistFormComponent implements OnInit {
 
     this.artistsService.createArtist(tatuador).subscribe((data) => {
       console.log('se creo el artista', data);
+    });
+  }
+
+  deleteTattoMaker(idArtist: number): void {
+    this.artistsService.deleteArtist(idArtist).subscribe(() => {
+      this.getArtist();
+    });
+  }
+
+  editTattoMaker(artista: TattoMaker): void {
+    this.artistsService.updateArtist(artista).subscribe(() => {
+      this.getArtist();
     });
   }
 

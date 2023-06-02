@@ -3,26 +3,70 @@
     <!-- <form (ngSubmit)="addTattoMaker()">  es lo mismo esto que poner click?-->
     <form [formGroup]="form">
       <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required /><br />
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        formControlName="nameForm"
+      /><br />
 
       <label for="apellido">Apellido:</label>
-      <input type="text" id="apellido" name="apellido" required /><br />
+      <input
+        type="text"
+        id="apellido"
+        name="apellido"
+        formControlName="nameForm"
+      /><br />
 
       <label for="descripcion">Descripcion:</label>
-      <input type="text" id="info" name="info" required /><br />
+      <input
+        type="text"
+        id="info"
+        name="info"
+        formControlName="descriptionForm"
+      /><br />
 
       <label for="telefono">Teléfono:</label>
-      <input type="tel" id="telefono" name="telefono" required /><br />
+      <input
+        type="tel"
+        id="telefono"
+        name="telefono"
+        formControlName="phoneForm"
+      /><br />
 
-      <label for="disponible">Disponibilidad::</label>
-      <input type="text" id="horario" name="horario" required /><br />
+      <label for="disponible">Disponibilidad:</label>
+      <input
+        type="text"
+        id="horario"
+        name="horario"
+        formControlName="availableForm"
+      /><br />
 
       <label for="imagen">Cargar imagen:</label>
-      <input type="file" id="imagen" name="imagen" />
+      <input
+        type="file"
+        id="imagen"
+        name="imagen"
+        formControlName="imageForm"
+      />
 
       <br />
       <button type="submit" (click)="addTattoMaker()" class="btn btn-primary">
         Guardar
+      </button>
+      <button
+        type="submit"
+        (click)="deleteTattoMaker(idAuthor)"
+        class="btn btn-secondary"
+      >
+        Eliminar
+      </button>
+      <button
+        type="submit"
+        (click)="editTattoMaker(artistas[0])"
+        class="btn btn-secondary"
+      >
+        Editar
       </button>
     </form>
   </div>
