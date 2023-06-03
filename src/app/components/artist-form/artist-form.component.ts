@@ -30,12 +30,26 @@ export class ArtistFormComponent implements OnInit {
 
   ngOnInit() {
     this.idAuthor = this.route.snapshot.params['id'];
-    this.form.valueChanges.subscribe(console.log);
+    this.getArtistById();
   }
 
-  getArtist(): void {
+  getArtisList(): void {
     this.artistsService.getArtists().subscribe((data) => {
       this.artistas = data;
+    });
+  }
+
+  getArtistById() {
+    this.artistsService.getArtists().subscribe((tatuadores) => {
+      let artistById = tatuadores.find((data) => data.id == this.idAuthor);
+
+      this.form.get('nameForm')?.patchValue(artistById?.name || '');
+      this.form
+        .get('descriptionForm')
+        ?.patchValue(artistById?.description || '');
+      this.form.get('imageForm')?.patchValue(artistById?.image || '');
+      this.form.get('phoneForm')?.patchValue(artistById?.phone || '');
+      this.form.get('availableForm')?.patchValue(artistById?.available || '');
     });
   }
 
@@ -55,13 +69,13 @@ export class ArtistFormComponent implements OnInit {
 
   deleteTattoMaker(idArtist: number): void {
     this.artistsService.deleteArtist(idArtist).subscribe(() => {
-      this.getArtist();
+      this.getArtisList();
     });
   }
 
   editTattoMaker(artista: TattoMaker): void {
     this.artistsService.updateArtist(artista).subscribe(() => {
-      this.getArtist();
+      this.getArtisList();
     });
   }
 
