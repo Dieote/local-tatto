@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { ArtistFormComponent } from './components/artist-form/artist-form.compon
 import { RouterModule } from '@angular/router';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { StudioTattoComponent } from './components/studio-tatto/studio-tatto.component';
-import { TattoMakersService } from './services/tatto-makers.service';
+import { ComentsComponent } from './components/coments/coments.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TattoMakersService } from './services/tatto-makers.service';
     CarrouselComponent,
     ArtistFormComponent,
     StudioTattoComponent,
+    ComentsComponent,
   ],
   imports: [
     HttpClientModule,
@@ -37,6 +39,7 @@ import { TattoMakersService } from './services/tatto-makers.service';
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule,
+    FormsModule,
   ],
   providers: [ArtistsService],
   bootstrap: [AppComponent],

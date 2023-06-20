@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { StudioTattoComponent } from './components/studio-tatto/studio-tatto.component';
 import { ArtistFormComponent } from './components/artist-form/artist-form.component';
 import { HomeComponent } from './components/home/home.component';
+import { ComentsComponent } from './components/coments/coments.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'estudio', component: StudioTattoComponent },
+  { path: 'coments', component: ComentsComponent },
 
   { path: 'autor', component: ArtistFormComponent },
   { path: 'autor/:id', component: ArtistFormComponent },

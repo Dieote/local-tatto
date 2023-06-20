@@ -29,7 +29,7 @@ export class ArtistsService {
   }
 
   updateArtist(artista: TattoMaker): Observable<TattoMaker> {
-    const upDate = this.urlBase + '/update-artist/' + artista.id;
+    const upDate = this.urlBase + '/update-artist/';
     return this.httpClient.put<TattoMaker>(upDate, artista);
   }
 
