@@ -13,7 +13,9 @@
             {{ tattoMaker.description }}
           </p>
           <p>{{ tattoMaker.phone }} - {{ tattoMaker.available }}</p>
-          <a href="/autor" class="btn btn-warning">Detalles</a>
+          <a href="{{ '/autor/' + tattoMaker.id }}" class="btn btn-warning"
+            >Detalles</a
+          >
         </div>
       </div>
     </div>

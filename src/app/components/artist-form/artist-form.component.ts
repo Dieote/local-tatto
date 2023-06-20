@@ -1,4 +1,3 @@
-import { TattoMakersService } from './../../services/tatto-makers.service';
 import { ArtistsService } from './../../services/artists.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -54,14 +53,7 @@ export class ArtistFormComponent implements OnInit {
   }
 
   addTattoMaker() {
-    const tatuador = new TattoMaker(
-      this.form.value.nameForm || '',
-      this.form.value.descriptionForm || '',
-      this.form.value.imageForm || '',
-      this.form.value.phoneForm || '',
-      this.form.value.availableForm || ''
-    );
-
+    const tatuador = this.tattoMakerCreate();
     this.artistsService.createArtist(tatuador).subscribe((data) => {
       console.log('se creo el artista', data);
     });
@@ -73,34 +65,24 @@ export class ArtistFormComponent implements OnInit {
     });
   }
 
-  editTattoMaker(artista: TattoMaker): void {
+  editTattoMaker(): void {
+    let artista = this.tattoMakerCreate(this.idAuthor);
     this.artistsService.updateArtist(artista).subscribe(() => {
       this.getArtisList();
     });
   }
 
-  // saveTattoMaker(){
-  //   const saveWorker = new TattoMaker(this.idArtistForm, this.nameForm,
-  //     this.descriptionForm, this.imageForm,
-  //      this.phoneForm, this.availableForm);
-  //      if(this.idArtistForm =! null){
-  //       this.artistsService.updateArtist(this.idArtistForm, saveWorker){
-  //         else {
-  //           this.artistsService.createArtist(saveWorker);
-  //         }
-  //         this.router.navigate(['tattoMakers'])
-  //       }
-  //      }
-  //   }
-  // constructor(private route:Routes){}
-  //crear el formulario con los valores de tatoomaker, MENOS el id
-  //---cuando vas a crear un tatuador---
-  // tener un boton que diga save tatuador y que tenga un (click)="saveTatoMaker()"
-  // saveTatoMaker(){
-  //   this.artistSErvice.createArtist(taduador)
-  // }
-  //---cuando vas a editar
-  //crear metodo updateTatoMaker o delete... igual que saveTatoMaker
-  // asd(){
-  // this.route.getParams(params)
+  private tattoMakerCreate(id?: number): TattoMaker {
+    let tatuadorAux = new TattoMaker(
+      this.form.value.nameForm || '',
+      this.form.value.descriptionForm || '',
+      this.form.value.imageForm || '',
+      this.form.value.phoneForm || '',
+      this.form.value.availableForm || ''
+    );
+    if (id) {
+      tatuadorAux.id = id;
+    }
+    return tatuadorAux;
+  }
 }

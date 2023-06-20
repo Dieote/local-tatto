@@ -6,12 +6,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ArtistsService {
   artistas: TattoMaker[] = [];
-  urlBase = 'assets/data.json/authors.json'; //conecta a .json
+  urlBase = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) {}
 
   getArtists() {
-    return this.httpClient.get<TattoMaker[]>(this.urlBase);
+    return this.httpClient.get<TattoMaker[]>(
+      this.urlBase + '/get-list-artists'
+    );
   }
 
   getArtistById(id: number): Observable<TattoMaker> {
@@ -20,16 +22,19 @@ export class ArtistsService {
   }
 
   createArtist(artista: TattoMaker): Observable<TattoMaker> {
-    return this.httpClient.post<TattoMaker>(this.urlBase, artista);
+    return this.httpClient.post<TattoMaker>(
+      this.urlBase + '/post-artist',
+      artista
+    );
   }
 
   updateArtist(artista: TattoMaker): Observable<TattoMaker> {
-    const upDate = this.urlBase + '/' + artista.id;
+    const upDate = this.urlBase + '/update-artist/' + artista.id;
     return this.httpClient.put<TattoMaker>(upDate, artista);
   }
 
   deleteArtist(id: number): Observable<TattoMaker[]> {
-    const idNum = this.urlBase + '/' + id;
+    const idNum = this.urlBase + '/delete-artist/' + id;
     return this.httpClient.delete<TattoMaker[]>(idNum);
   }
 }
