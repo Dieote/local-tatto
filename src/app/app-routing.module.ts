@@ -8,7 +8,7 @@ import { ComentsComponent } from './components/coments/coments.component';
 import { ArtistComponent } from './components/artist/artist.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'estudio', component: StudioTattoComponent },
   { path: 'coments', component: ComentsComponent },

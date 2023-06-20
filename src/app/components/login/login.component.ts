@@ -1,7 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingService } from './../../services/loading.service';
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',

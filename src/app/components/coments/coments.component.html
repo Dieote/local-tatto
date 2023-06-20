@@ -3,18 +3,22 @@
     <h2>Comentarios</h2>
     <div>
       <div class="input-group mb-3">
-        <label class="input-group-text">Describe tu experiencia:</label>
-        <textarea
-          placeholder="Tu opinion nos importa.."
-          [(ngModel)]="newComment"
-          class="form-control"
-          aria-label="with-textarea"
-          type="text"
-          id="Comment"
-          name="Comment"
-          rows="4"
-          cols="30"
-        ></textarea>
+        <label id="label-contact"
+          ><strong>Describe tu experiencia:</strong></label
+        >
+        <form>
+          <textarea
+            placeholder="Tu opinion nos importa.."
+            [(ngModel)]="newComment"
+            class="form-control"
+            aria-label="with-textarea"
+            type="text"
+            id="Comment"
+            name="Comment"
+            rows="3"
+            cols="70"
+          ></textarea>
+        </form>
       </div>
       <button class="btn btn-primary" (click)="sendComent()">Enviar</button>
     </div>

@@ -14,9 +14,14 @@
           type="email"
           class="form-control"
           id="inputEmail1"
+          name="email"
           aria-describedby="emailHelp"
           placeholder="@gmail.com"
         />
+      </div>
+      <div>
+        <!-- [hidden]="email.valid || email.pristine" class="alert alert-danger"> -->
+        Campo es requerido
       </div>
       <div class="mb-3" width="60%">
         <label
@@ -42,7 +47,12 @@
           >Recordar usuario</label
         >
       </div>
-      <button type="submit" (click)="okLogin()" class="btn btn-primary">
+      <button
+        type="submit"
+        (click)="okLogin()"
+        class="btn btn-primary"
+        [disabled]="userForm.invalid"
+      >
         Ingresar
       </button>
     </form>
