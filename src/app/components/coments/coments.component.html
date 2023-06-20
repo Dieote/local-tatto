@@ -1,31 +1,54 @@
-<div class="row align-items-center">
-  <h2>Comentarios</h2>
-  <div>
-    <div class="input-group mb-3">
-      <label class="input-group-text">Describe tu experiencia:</label>
-      <textarea
-        placeholder="Tu opinion nos importa.."
-        [(ngModel)]="newComment"
-        class="form-control"
-        aria-label="with-textarea"
-        type="text"
-        id="Comment"
-        name="Comment"
-        rows="4"
-        cols="30"
-      ></textarea>
+<div>
+  <div class="row align-items-center">
+    <h2>Comentarios</h2>
+    <div>
+      <div class="input-group mb-3">
+        <label class="input-group-text">Describe tu experiencia:</label>
+        <textarea
+          placeholder="Tu opinion nos importa.."
+          [(ngModel)]="newComment"
+          class="form-control"
+          aria-label="with-textarea"
+          type="text"
+          id="Comment"
+          name="Comment"
+          rows="4"
+          cols="30"
+        ></textarea>
+      </div>
+      <button class="btn btn-primary" (click)="sendComent()">Enviar</button>
     </div>
-    <button class="btn btn-primary" (click)="sendComent()">Enviar</button>
-  </div>
-  <br />
-  <hr />
-  <div class="input-group mb-3">
-    <h4>Valoraciones</h4>
-    <div
-      *ngFor="let newComment of comments"
-      class="position-absolute top-100 start-30 translate-middle"
-    >
-      NombreUsuario: {{ newComment }}
+    <br />
+    <hr />
+    <div class="input-group mb-3">
+      <h4>Valoraciones</h4>
+      <div class="container text-center">
+        <div *ngFor="let newComment of comments">
+          <div><strong>Nombre Usuario:</strong> {{ newComment }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <a href="/home" class="nav-link px-2 text-muted">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="/coments" class="nav-link px-2 text-muted">Comentarios</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Tienda</a>
+          </li> -->
+          <li class="nav-item">
+            <a href="/artists" class="nav-link px-2 text-muted">Artistas</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Acerca</a>
+          </li>
+        </ul>
+        <p class="text-center text-muted">© 2023 TattoCompany, Inc</p>
+      </footer>
     </div>
   </div>
 </div>
