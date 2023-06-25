@@ -6,15 +6,13 @@
         <label id="label-contact"
           ><strong>Describe tu experiencia:</strong></label
         >
-        <form>
+        <form [formGroup]="form">
           <textarea
+            formControlName="formComentario"
             placeholder="Tu opinion nos importa.."
-            [(ngModel)]="newComment"
             class="form-control"
             aria-label="with-textarea"
             type="text"
-            id="Comment"
-            name="Comment"
             rows="3"
             cols="70"
           ></textarea>
@@ -27,8 +25,13 @@
     <div class="input-group mb-3">
       <h4>Valoraciones</h4>
       <div class="container text-center">
-        <div *ngFor="let newComment of comments">
-          <div><strong>Nombre Usuario:</strong> {{ newComment }}</div>
+        <div *ngIf="arrayComentario.length > 0">
+          <div *ngFor="let userComment of arrayComentario">
+            <div>
+              <strong>Nombre Usuario:</strong> {{ userComment.comment }}
+              <button (click)="deleteComent(userComment.id)">Eliminar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -36,19 +39,23 @@
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
           <li class="nav-item">
-            <a href="/home" class="nav-link px-2 text-muted">Inicio</a>
+            <a routerLink="/home" class="nav-link px-2 text-muted">Inicio</a>
           </li>
           <li class="nav-item">
-            <a href="/coments" class="nav-link px-2 text-muted">Comentarios</a>
+            <a routerLink="/coments" class="nav-link px-2 text-muted"
+              >Comentarios</a
+            >
           </li>
           <!-- <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">Tienda</a>
+            <a routerLink="#" class="nav-link px-2 text-muted">Tienda</a>
           </li> -->
           <li class="nav-item">
-            <a href="/artists" class="nav-link px-2 text-muted">Artistas</a>
+            <a routerLink="/artists" class="nav-link px-2 text-muted"
+              >Artistas</a
+            >
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">Acerca</a>
+            <a routerLink="#" class="nav-link px-2 text-muted">Acerca</a>
           </li>
         </ul>
         <p class="text-center text-muted">© 2023 TattoCompany, Inc</p>

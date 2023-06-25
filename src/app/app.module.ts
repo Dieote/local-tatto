@@ -18,6 +18,9 @@ import { RouterModule } from '@angular/router';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { StudioTattoComponent } from './components/studio-tatto/studio-tatto.component';
 import { ComentsComponent } from './components/coments/coments.component';
+import { CommentsService } from './services/comments.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,8 +43,10 @@ import { ComentsComponent } from './components/coments/coments.component';
     ReactiveFormsModule,
     RouterModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [ArtistsService],
+  providers: [ArtistsService, CommentsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
