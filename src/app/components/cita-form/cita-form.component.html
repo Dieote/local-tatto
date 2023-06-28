@@ -1,24 +1,36 @@
 <div class="container">
   <h3>Reserva tu cita!</h3>
-  <form [formGroup]="formCita">
+  <form [formGroup]="formCita" (ngSubmit)="addCita()">
     <div class="row">
       <div class="col-md-6">
-        <label class="input-group-text" for="nombre">Nombre completo:</label>
+        <label class="input-group-text" for="nombre"
+          ><span class="asteriscoValid">*</span>Nombre completo:</label
+        >
         <input
           class="form-control"
           type="text"
           id="nombreCliente"
           name="nombreCliente"
           formControlName="nameCita"
-        /><br /><br />
-        <label class="input-group-text" for="telefono">Teléfono:</label>
+        /><br />
+        <div *ngIf="isFieldInvalid('nameCita')" class="text-danger">
+          Nombre es requerido.
+        </div>
+        <br />
+        <label class="input-group-text" for="telefono"
+          ><span class="asteriscoValid">*</span>Teléfono:</label
+        >
         <input
           class="form-control"
           type="tel"
           id="telefono"
           name="telefono"
           formControlName="phoneCita"
-        /><br /><br />
+        /><br />
+        <div *ngIf="isFieldInvalid('phoneCita')" class="text-danger">
+          Telefono es requerido.
+        </div>
+        <br />
 
         <label class="input-group-text"
           >Artista:
@@ -30,13 +42,14 @@
             (change)="subscribeIdArtist()"
             formControlName="idArtistaForm"
           >
-            <option>Elige tu Artista</option>
+            <option value="" disabled hidden>Elige tu Artista</option>
             <option *ngFor="let artist of tatuadores" [value]="artist.id">
               {{ artist.name }}
             </option>
           </select></label
         >
-        <br /><br />
+        <br />
+        <br />
         <div class="input-group-text">
           <label id="citaDisponible">Disponible:</label>
           <div class="form-check">
@@ -74,15 +87,26 @@
           </div>
         </div>
         <br />
-        <input class="btn btn-primary" type="submit" value="Enviar" />
+        <input
+          class="btn btn-primary"
+          type="submit"
+          value="Enviar"
+          [disabled]="!isFormValid()"
+        />
       </div>
       <div class="col-md-6" id="rightSide">
         <div class="p-5 text-center bg-body-tertiary rounded-3">
-          <h1 class="text-body-emphasis">Tu artista seleccionado!</h1>
+          <h1 class="text-body-emphasis">Tu cita programada con...</h1>
+          <hr />
+          <br />
           <div *ngIf="tatuadorSeleccionado">
-            <p class="lead">{{ tatuadorSeleccionado.name }}</p>
-            <p class="lead">{{ tatuadorSeleccionado.description }}</p>
-            <p class="lead">{{ tatuadorSeleccionado.phone }}</p>
+            <p class="tatuador-nombre">{{ tatuadorSeleccionado.name }}</p>
+            <p class="tatuador-descripcion">
+              {{ tatuadorSeleccionado.description }}
+            </p>
+            <p class="tatuador-telefono">
+              Contacto: {{ tatuadorSeleccionado.phone }}
+            </p>
           </div>
           <div *ngIf="!tatuadorSeleccionado">
             <p>No se ha seleccionado ningún artista.</p>

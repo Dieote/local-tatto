@@ -22,6 +22,7 @@ import { CommentsService } from './services/comments.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CitaFormComponent } from './components/cita-form/cita-form.component';
+import { CitaService } from './services/cita.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { CitaFormComponent } from './components/cita-form/cita-form.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ArtistsService, CommentsService],
+  providers: [ArtistsService, CommentsService, CitaService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
