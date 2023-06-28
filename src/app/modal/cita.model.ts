@@ -1,9 +1,9 @@
 export class CitaModel {
   id?: number;
-  name: string;
-  phone: string;
+  nameCita: string;
+  phoneCita: string;
   artist: string;
-  available: string;
+  availableCita: string;
   constructor(
     // idArtist: number,
     name: string,
@@ -12,9 +12,9 @@ export class CitaModel {
     available: string
   ) {
     // this.idArtist = idArtist;
-    this.name = name;
+    this.nameCita = name;
     this.artist = artist;
-    this.phone = phone;
-    this.available = available;
+    this.phoneCita = phone;
+    this.availableCita = available;
   }
 }

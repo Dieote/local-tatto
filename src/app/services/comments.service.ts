@@ -9,6 +9,7 @@ export class CommentsService {
   urlBase = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) {}
+
   getAllComment(): Observable<Comment[]> {
     return this.httpClient.get<Comment[]>(this.urlBase + '/get-comments');
   }
