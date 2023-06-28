@@ -1,0 +1,95 @@
+<div class="container">
+  <h3>Reserva tu cita!</h3>
+  <form [formGroup]="formCita">
+    <div class="row">
+      <div class="col-md-6">
+        <label class="input-group-text" for="nombre">Nombre completo:</label>
+        <input
+          class="form-control"
+          type="text"
+          id="nombreCliente"
+          name="nombreCliente"
+          formControlName="nameCita"
+        /><br /><br />
+        <label class="input-group-text" for="telefono">Teléfono:</label>
+        <input
+          class="form-control"
+          type="tel"
+          id="telefono"
+          name="telefono"
+          formControlName="phoneCita"
+        /><br /><br />
+
+        <label class="input-group-text"
+          >Artista:
+          <select
+            class="form-control"
+            id="artistaCita"
+            name="artistaCita"
+            [(ngModel)]="selectedArtist"
+            (change)="subscribeIdArtist()"
+            formControlName="idArtistaForm"
+          >
+            <option>Elige tu Artista</option>
+            <option *ngFor="let artist of tatuadores" [value]="artist.id">
+              {{ artist.name }}
+            </option>
+          </select></label
+        >
+        <br /><br />
+        <div class="input-group-text">
+          <label id="citaDisponible">Disponible:</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="morning"
+              name="availableCita"
+              value="morning1"
+              formControlName="availableCita"
+              class="form-check-input"
+            />
+            <label class="form-check-label" for="morning">Mañana</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="evening"
+              name="availableCita"
+              value="evening2"
+              formControlName="availableCita"
+              class="form-check-input"
+            />
+            <label class="form-check-label" for="evening">Tarde</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="night"
+              name="availableCita"
+              value="night3"
+              formControlName="availableCita"
+              class="form-check-input"
+            />
+            <label class="form-check-label" for="night">Noche</label>
+          </div>
+        </div>
+        <br />
+        <input class="btn btn-primary" type="submit" value="Enviar" />
+      </div>
+      <div class="col-md-6" id="rightSide">
+        <div class="p-5 text-center bg-body-tertiary rounded-3">
+          <h1 class="text-body-emphasis">Tu artista seleccionado!</h1>
+          <div *ngIf="tatuadorSeleccionado">
+            <p class="lead">{{ tatuadorSeleccionado.name }}</p>
+            <p class="lead">{{ tatuadorSeleccionado.description }}</p>
+            <p class="lead">{{ tatuadorSeleccionado.phone }}</p>
+          </div>
+          <div *ngIf="!tatuadorSeleccionado">
+            <p>No se ha seleccionado ningún artista.</p>
+            <img src="assets/ArtistNull.jpeg" alt="Imagen no encontrada" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

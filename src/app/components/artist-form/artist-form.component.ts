@@ -1,8 +1,10 @@
 import { ArtistsService } from './../../services/artists.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { TattoMaker } from 'src/app/modal/tattoMaker.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { IndividualConfig, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-artist-form',
@@ -15,7 +17,9 @@ export class ArtistFormComponent implements OnInit {
   idAuthor: number = 0;
   constructor(
     private artistsService: ArtistsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   form = new FormGroup({
@@ -54,21 +58,27 @@ export class ArtistFormComponent implements OnInit {
 
   addTattoMaker() {
     const tatuador = this.tattoMakerCreate();
+    this.callToastrSuccesForm('Artista creado correctamente.');
     this.artistsService.createArtist(tatuador).subscribe((data) => {
       console.log('se creo el artista', data);
+      this.router.navigate(['artists']);
     });
   }
 
   deleteTattoMaker(idArtist: number): void {
+    this.callToastrSuccesForm('Artista eliminado correctamente.');
     this.artistsService.deleteArtist(idArtist).subscribe(() => {
       this.getArtisList();
+      this.router.navigate(['artists']);
     });
   }
 
   editTattoMaker(): void {
     let artista = this.tattoMakerCreate(this.idAuthor);
+    this.callToastrSuccesForm('Artista editado correctamente.');
     this.artistsService.updateArtist(artista).subscribe(() => {
       this.getArtisList();
+      this.router.navigate(['artists']);
     });
   }
 
@@ -84,5 +94,12 @@ export class ArtistFormComponent implements OnInit {
       tatuadorAux.id = id;
     }
     return tatuadorAux;
+  }
+
+  callToastrSuccesForm(mensaje: string) {
+    const toastrConfig: Partial<IndividualConfig> = {
+      progressBar: true,
+    };
+    this.toastr.success(mensaje, '', toastrConfig);
   }
 }

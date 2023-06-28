@@ -6,6 +6,7 @@ import { ArtistFormComponent } from './components/artist-form/artist-form.compon
 import { HomeComponent } from './components/home/home.component';
 import { ComentsComponent } from './components/coments/coments.component';
 import { ArtistComponent } from './components/artist/artist.component';
+import { CitaFormComponent } from './components/cita-form/cita-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'estudio', component: StudioTattoComponent },
   { path: 'coments', component: ComentsComponent },
   { path: 'artists', component: ArtistComponent },
+  { path: 'date', component: CitaFormComponent },
 
   { path: 'autor', component: ArtistFormComponent },
   { path: 'autor/:id', component: ArtistFormComponent },

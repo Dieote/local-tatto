@@ -38,7 +38,7 @@ export class ComentsComponent implements OnInit {
   sendComent() {
     let commentPost = new Comment(this.form.value.formComentario || '');
 
-    this.callSuccesToastr('lsaijsi');
+    this.callSuccesToastr('Comentario enviado correctamente');
     this.commentsService.createComment(commentPost).subscribe((data) => {
       this.rtaPost = data;
 
