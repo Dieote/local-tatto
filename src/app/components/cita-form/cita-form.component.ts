@@ -26,23 +26,6 @@ export class CitaFormComponent implements OnInit {
     this.getAllArtist();
   }
 
-  // onArtist() {
-  //   //colocar logica de boton submit
-  //   const selectedArtist = return this.tatuadores.find(
-  //     (artist) => artist.name === this.selectedArtist
-  //   );
-  //   if (selectedArtist) {
-  //     const rightSideElement = document.getElementById('rightSide');
-  //     if (rightSideElement) {
-  //       rightSideElement.innerHTML = `
-  //     <h1>${selectedArtist.name}</h1>
-  //     <p>${selectedArtist.description}</p>
-  //     <p>${selectedArtist.phone} - ${selectedArtist.available}</p>
-  //   `;
-  //     }
-  //   }
-  // }
-
   subscribeIdArtist() {
     const idArtista = this.formCita.get('idArtistaForm')?.value;
     console.log(idArtista);

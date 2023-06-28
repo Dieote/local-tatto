@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { CitaModel } from './../modal/cita.model';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ObservedValuesFromArray } from 'rxjs';
 import { ResponseModal } from '../modal/response.modal';
+import { UrlSerializer } from '@angular/router';
 
 @Injectable()
 export class CitaService {
@@ -25,5 +26,14 @@ export class CitaService {
       this.urlBase + '/post-cita',
       cita
     );
+  }
+  updateCita(cita: CitaModel): Observable<ResponseModal> {
+    const upCita = this.urlBase + '/update-cita';
+    return this.httpClient.put<ResponseModal>(upCita, cita);
+  }
+
+  deleteCita(id: number): Observable<ResponseModal> {
+    const numId = this.urlBase + '/delete-cita/' + id;
+    return this.httpClient.delete<ResponseModal>(numId);
   }
 }
