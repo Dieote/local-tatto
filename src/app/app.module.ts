@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CitaFormComponent } from './components/cita-form/cita-form.component';
 import { CitaService } from './services/cita.service';
 import { ListCitasComponent } from './components/list-citas/list-citas.component';
+import { DesignsComponent } from './components/designs/designs.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { ListCitasComponent } from './components/list-citas/list-citas.component
     ComentsComponent,
     CitaFormComponent,
     ListCitasComponent,
+    DesignsComponent,
   ],
   imports: [
     HttpClientModule,
@@ -49,6 +52,7 @@ import { ListCitasComponent } from './components/list-citas/list-citas.component
     RouterModule,
     FormsModule,
     BrowserAnimationsModule,
+    NgbModule,
     ToastrModule.forRoot(),
   ],
   providers: [ArtistsService, CommentsService, CitaService],

@@ -8,6 +8,7 @@ import { ComentsComponent } from './components/coments/coments.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { CitaFormComponent } from './components/cita-form/cita-form.component';
 import { ListCitasComponent } from './components/list-citas/list-citas.component';
+import { DesignsComponent } from './components/designs/designs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'artists', component: ArtistComponent },
   { path: 'date', component: CitaFormComponent },
   { path: 'schedule', component: ListCitasComponent },
+  { path: 'designs', component: DesignsComponent },
 
   { path: 'autor', component: ArtistFormComponent },
   { path: 'autor/:id', component: ArtistFormComponent },
