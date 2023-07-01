@@ -26,6 +26,8 @@ import { CitaFormComponent } from './components/cita-form/cita-form.component';
 import { CitaService } from './services/cita.service';
 import { ListCitasComponent } from './components/list-citas/list-citas.component';
 import { DesignsComponent } from './components/designs/designs.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { DesignsComponent } from './components/designs/designs.component';
     CitaFormComponent,
     ListCitasComponent,
     DesignsComponent,
+    SignupComponent,
   ],
   imports: [
     HttpClientModule,
@@ -55,7 +58,7 @@ import { DesignsComponent } from './components/designs/designs.component';
     NgbModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ArtistsService, CommentsService, CitaService],
+  providers: [ArtistsService, CommentsService, CitaService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
