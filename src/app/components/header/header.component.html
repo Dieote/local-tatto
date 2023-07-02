@@ -27,11 +27,10 @@
       <li><a routerLink="/estudio" class="nav-link px-2">Estudio</a></li>
       <li><a routerLink="/designs" class="nav-link px-2">Diseños</a></li>
       <li><a href="#" class="nav-link px-2">Pircings</a></li>
-      <li><a href="/schedule" class="nav-link px-2">Agenda</a></li>
+      <li><a routerLink="/schedule" class="nav-link px-2">Agenda</a></li>
       <li><a href="#" class="nav-link px-2 link-secondary">Contacto</a></li>
     </ul>
-
-    <div class="col-md-3 text-end">
+    <div class="col-md-3 text-end d-flex align-items-center">
       <button
         type="button"
         class="btn btn-outline-primary me-2"
@@ -47,7 +46,7 @@
       >
         Cerrar sesion
       </button>
-      <!-- <button type="button" class="btn btn-primary">Sign-up</button>-->
+      <a routerLink="/signIn" class="nav-link px-2 text-muted">Registrarse</a>
     </div>
     <div
       class="modal fade"
@@ -104,16 +103,6 @@
                 <div id="passwordHelp" class="form-text">
                   No compartas tu contraseña.
                 </div>
-              </div>
-              <div class="mb-3 form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="exampleCheck1"
-                />
-                <label class="form-check-label" for="exampleCheck1"
-                  >Recordar usuario</label
-                >
               </div>
             </form>
           </div>
