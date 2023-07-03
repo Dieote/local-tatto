@@ -7,18 +7,21 @@
     </h4>
 
     <div class="row" style="margin-top: 20px">
-      <div class="col-md-6 offset-md-3">
+      <div class="col-md-3 text-center d-flex align-items-center">
+        <img src="assets/estudio2.jpeg" width="200" height="200" />
+      </div>
+      <div class="col-md-6">
         <div class="container text-center">
           <img src="assets/icon.png" width="50" height="50" />
         </div>
-        <h5 class="text-center">Registrate aqui</h5>
+        <h5 class="text-center">Registrate aquí</h5>
         <br />
         <br />
 
         <form (ngSubmit)="formSubmit()">
-          <div class="mb-3" width="60%">
-            <label for="exampleInputEmail1" class="form-label" id="username"
-              >Nombre Usuario</label
+          <div class="mb-3">
+            <label for="inputUsername" class="form-label" id="username"
+              >Nombre de Usuario</label
             >
             <input
               [(ngModel)]="user.username"
@@ -28,43 +31,42 @@
               name="username"
               aria-describedby="usernameHelp"
             />
-            <div class="mb-3" width="60%">
-              <label for="exampleInputEmail1" class="form-label" id="email"
-                >Email</label
-              >
-              <input
-                [(ngModel)]="user.email"
-                type="email"
-                class="form-control"
-                id="inputEmail1"
-                name="email"
-                aria-describedby="emailHelp"
-                placeholder="@gmail.com"
-              />
-            </div>
-            <div class="mb-3" width="60%">
-              <label
-                for="exampleInputPassword1"
-                class="form-label"
-                id="password"
-                >Password</label
-              >
-              <input
-                [(ngModel)]="user.password"
-                type="password"
-                name="password"
-                class="form-control"
-                id="inputPassword1"
-                placeholder="********"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
           </div>
+          <div class="mb-3">
+            <label for="inputEmail1" class="form-label" id="email">Email</label>
+            <input
+              [(ngModel)]="user.email"
+              type="email"
+              class="form-control"
+              id="inputEmail1"
+              name="email"
+              aria-describedby="emailHelp"
+              placeholder="@gmail.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="inputPassword1" class="form-label" id="password"
+              >Password</label
+            >
+            <input
+              [(ngModel)]="user.password"
+              type="password"
+              name="password"
+              class="form-control"
+              id="inputPassword1"
+              placeholder="********"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Registrarse</button>
         </form>
+      </div>
+      <div class="col-md-3 text-center d-flex align-items-center">
+        <img src="assets/estudio3.jpeg" width="200" height="200" />
       </div>
     </div>
     <br />
-    <h5 class="fst-italic fw-lighter text-center">
+    <br />
+    <h5 class="fst-italic fw-lighter text-center shadow-sign font-monospace">
       Únete a nuestra comunidad y deja que la amistad y el arte se fusionen en
       tu piel.
     </h5>

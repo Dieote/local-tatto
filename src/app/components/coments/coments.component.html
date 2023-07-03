@@ -39,9 +39,13 @@
         <div class="row">
           <div class="col-md-10">
             <div *ngIf="arrayComentario.length > 0">
-              <div *ngFor="let userComment of arrayComentario">
+              <div
+                *ngFor="let userComment of arrayComentario"
+                class="comment-container"
+              >
                 <div>
-                  <strong>Nombre Usuario:</strong> {{ userComment.comment }}
+                  <strong class="username">Usuario no registrado:</strong>
+                  {{ userComment.comment }}
                 </div>
               </div>
             </div>

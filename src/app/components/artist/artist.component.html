@@ -13,7 +13,7 @@
   <div class="row align-items-center">
     <div class="col-4" *ngFor="let tattoMaker of tatuadores">
       <div class="card" style="width: 18rem">
-        <img src="assets/fotiti.jpeg" class="img-thumbnail" alt="fotiti" />
+        <img src="assets/defauProf.jpeg" class="img-thumbnail" alt="fotiti" />
         <div class="card-body">
           <h5 class="card-title">{{ tattoMaker.name | titlecase }}</h5>
           <p class="card-text">
@@ -21,11 +21,20 @@
           </p>
           <p>{{ tattoMaker.phone }} - {{ tattoMaker.available }}</p>
           <br />
-          <a href="{{ '/date' }}" class="btn btn-warning">Cita!</a>
+          <div class="card-body d-flex justify-content-between">
+            <a href="{{ '/date' }}" class="btn btn-warning">Cita!</a>
+
+            <a
+              href="{{ '/form-artist' }}"
+              class="btn btn-outline-light text-warning"
+              >Editar</a
+            >
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <br />
   <button type="submit" class="btn btn-primary" routerLink="/form-artist">
     Agregar Artista!
   </button>
