@@ -4,7 +4,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Comment } from 'src/app/modal/comment.model';
 
 import { ToastrService } from 'ngx-toastr';
-// import 'ngx-toastr/toastr-bs5-alert';
 
 @Component({
   selector: 'app-coments',

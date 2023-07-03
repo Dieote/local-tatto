@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { CitaModel } from './../modal/cita.model';
 import { Injectable } from '@angular/core';
-import { Observable, ObservedValuesFromArray } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ResponseModal } from '../modal/response.modal';
-import { UrlSerializer } from '@angular/router';
 
 @Injectable()
 export class CitaService {

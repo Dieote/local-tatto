@@ -1,8 +1,15 @@
 <div class="container text-center">
-  <!--
-      <div *ngFor="let tattoMaker of this.artistsService.verArtistas() | async">
-     -->
-  <h1 class="text-center fst-italic fw-semibold">Artists</h1>
+  <hr />
+  <h1 class="text-center fst-italic fw-semibold">Artistas!</h1>
+  <p class="text-center fs-5 container">
+    En Tatto-Art.E, entendemos la importancia de la responsabilidad en el arte
+    del tatuaje. Cada diseño que creamos es una representación duradera de la
+    individualidad e historia personal de nuestros clientes, y nos tomamos esa
+    responsabilidad muy en serio. Nuestros artistas trabajan estrechamente
+    contigo para garantizar que tu visión se convierta en una obra de arte
+    auténtica y personalizada.
+  </p>
+  <hr />
   <div class="row align-items-center">
     <div class="col-4" *ngFor="let tattoMaker of tatuadores">
       <div class="card" style="width: 18rem">
@@ -13,9 +20,13 @@
             {{ tattoMaker.description }}
           </p>
           <p>{{ tattoMaker.phone }} - {{ tattoMaker.available }}</p>
+          <br />
           <a href="{{ '/date' }}" class="btn btn-warning">Cita!</a>
         </div>
       </div>
     </div>
   </div>
+  <button type="submit" class="btn btn-primary" routerLink="/form-artist">
+    Agregar Artista!
+  </button>
 </div>

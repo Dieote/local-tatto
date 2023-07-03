@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'schedule', component: ListCitasComponent },
   { path: 'designs', component: DesignsComponent },
   { path: 'signIn', component: SignupComponent },
+  { path: 'form-artist', component: ArtistFormComponent },
 
   { path: 'autor', component: ArtistFormComponent },
   { path: 'autor/:id', component: ArtistFormComponent },
