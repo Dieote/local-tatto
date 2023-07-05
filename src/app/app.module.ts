@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { ManagementButtonsComponent } from './components/management-buttons/management-buttons.component';
 import { ArtistsService } from './services/artists.service';
@@ -35,7 +34,6 @@ import { UserService } from './services/user.service';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent,
     ArtistComponent,
     ManagementButtonsComponent,
     CarrouselComponent,
@@ -57,6 +55,7 @@ import { UserService } from './services/user.service';
     BrowserAnimationsModule,
     NgbModule,
     ToastrModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [ArtistsService, CommentsService, CitaService, UserService],
   bootstrap: [AppComponent],

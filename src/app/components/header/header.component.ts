@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
@@ -10,23 +10,13 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class HeaderComponent {
   constructor(public loadingService: LoadingService) {}
 
-  userForm = new FormGroup({
-    email: new FormControl('', Validators.required),
+  loginForm = new FormGroup({
+    email: new FormControl(''),
     password: new FormControl(''),
   });
 
   okLogin() {
-    //revisar este metodo
-    const email = this.userForm.value.email;
-    const password = this.userForm.value.password;
-
-    this.loadingService.getLoginJson().subscribe((login) => {
-      if (email == 'admin' && password == 'admin') {
-        this.loadingService.setLogin(true);
-      } else {
-        this.loadingService.setLogin(false);
-      }
-    });
+    console.log('Click en boton login');
   }
 
   openModal() {
