@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService, IndividualConfig } from 'ngx-toastr';
-import { LoadingService } from 'src/app/services/loading.service';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -49,7 +47,7 @@ export class HeaderComponent {
           if (this.loginservice.getUserRol() == 'ADMIN') {
             //dash admin
             // window.location.href = '/admin';
-            this.router.navigate(['admin']);
+            this.router.navigate(['home']);
           } else if (this.loginservice.getUserRol() == 'USER') {
             //dash user
             // window.location.href = '/user-dash';

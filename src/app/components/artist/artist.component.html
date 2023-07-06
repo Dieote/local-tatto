@@ -1,6 +1,6 @@
 <div class="container text-center">
   <hr />
-  <h1 class="text-center fst-italic fw-semibold">Artistas!</h1>
+  <h1 class="text-center fst-italic fw-semibold">Artistas</h1>
   <p class="text-center fs-5 container">
     En Tatto-Art.E, entendemos la importancia de la responsabilidad en el arte
     del tatuaje. Cada diseño que creamos es una representación duradera de la
@@ -22,20 +22,39 @@
           <p>{{ tattoMaker.phone }} - {{ tattoMaker.available }}</p>
           <br />
           <div class="card-body d-flex justify-content-between">
-            <a href="{{ '/date' }}" class="btn btn-warning">Cita!</a>
+            <a
+              *ngIf="
+                (loginservice.isLoggedIn() &&
+                  loginservice.getUserRol() === 'ADMIN') ||
+                loginservice.getUserRol() === 'USER'
+              "
+              href="{{ '/date' }}"
+              class="btn btn-warning"
+              >Cita</a
+            >
 
             <a
+              *ngIf="
+                loginservice.isLoggedIn() &&
+                loginservice.getUserRol() === 'ADMIN'
+              "
               href="{{ '/form-artist' }}"
               class="btn btn-outline-light text-warning"
               >Editar</a
             >
+            <p *ngIf="!loginservice.isLoggedIn()">Para citas inicia sesion!</p>
           </div>
         </div>
       </div>
     </div>
   </div>
   <br />
-  <button type="submit" class="btn btn-primary" routerLink="/form-artist">
-    Agregar Artista!
+  <button
+    *ngIf="loginservice.isLoggedIn() && loginservice.getUserRol() === 'ADMIN'"
+    type="submit"
+    class="btn btn-primary"
+    routerLink="/form-artist"
+  >
+    Agregar Artista
   </button>
 </div>

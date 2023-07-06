@@ -25,10 +25,15 @@ const routes: Routes = [
   { path: 'schedule', component: ListCitasComponent },
   { path: 'designs', component: DesignsComponent },
   { path: 'signIn', component: SignupComponent },
-  { path: 'form-artist', component: ArtistFormComponent },
+  {
+    path: 'form-artist',
+    component: ArtistFormComponent,
+    pathMatch: 'full',
+    canActivate: [AdminGuard],
+  },
 
   {
-    path: 'admin',
+    path: 'home',
     component: AdminDashComponent,
     pathMatch: 'full',
     canActivate: [AdminGuard],
@@ -39,9 +44,6 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [UserGuard],
   },
-
-  { path: 'autor', component: ArtistFormComponent },
-  { path: 'autor/:id', component: ArtistFormComponent },
 ];
 
 @NgModule({
