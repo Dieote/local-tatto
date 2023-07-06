@@ -10,6 +10,10 @@ import { CitaFormComponent } from './components/cita-form/cita-form.component';
 import { ListCitasComponent } from './components/list-citas/list-citas.component';
 import { DesignsComponent } from './components/designs/designs.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AdminDashComponent } from './components/dashbords/admin-dash/admin-dash.component';
+import { UserDashComponent } from './components/dashbords/user-dash/user-dash.component';
+import { UserGuard } from './services/user.guard';
+import { AdminGuard } from './services/admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,6 +26,19 @@ const routes: Routes = [
   { path: 'designs', component: DesignsComponent },
   { path: 'signIn', component: SignupComponent },
   { path: 'form-artist', component: ArtistFormComponent },
+
+  {
+    path: 'admin',
+    component: AdminDashComponent,
+    pathMatch: 'full',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'user-dash',
+    component: UserDashComponent,
+    pathMatch: 'full',
+    canActivate: [UserGuard],
+  },
 
   { path: 'autor', component: ArtistFormComponent },
   { path: 'autor/:id', component: ArtistFormComponent },

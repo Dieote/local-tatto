@@ -27,6 +27,9 @@ import { ListCitasComponent } from './components/list-citas/list-citas.component
 import { DesignsComponent } from './components/designs/designs.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserService } from './services/user.service';
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { UserDashComponent } from './components/dashbords/user-dash/user-dash.component';
+import { AdminDashComponent } from './components/dashbords/admin-dash/admin-dash.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ import { UserService } from './services/user.service';
     ListCitasComponent,
     DesignsComponent,
     SignupComponent,
+    UserDashComponent,
+    AdminDashComponent,
   ],
   imports: [
     HttpClientModule,
@@ -57,7 +62,13 @@ import { UserService } from './services/user.service';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
   ],
-  providers: [ArtistsService, CommentsService, CitaService, UserService],
+  providers: [
+    ArtistsService,
+    CommentsService,
+    CitaService,
+    UserService,
+    authInterceptorProviders,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

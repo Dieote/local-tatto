@@ -36,17 +36,24 @@
         class="btn btn-outline-primary me-2"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
+        *ngIf="!loginservice.isLoggedIn()"
       >
         Ingresar
       </button>
       <button
         type="button"
         class="btn btn-outline-primary me-2"
-        *ngIf="loadingService.getLogin()"
+        (click)="logOut()"
+        *ngIf="loginservice.isLoggedIn()"
       >
         Cerrar sesion
       </button>
-      <a routerLink="/signIn" class="nav-link px-2 text-muted">Registrarse</a>
+      <a
+        routerLink="/signIn"
+        class="nav-link px-2 text-muted"
+        *ngIf="!loginservice.isLoggedIn()"
+        >Registrarse</a
+      >
     </div>
     <div
       class="modal fade"
@@ -69,35 +76,30 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form [formGroup]="loginForm">
+            <form (ngSubmit)="formSubmit()">
               <div class="mb-3" width="60%">
-                <label
-                  for="exampleInputEmail1"
-                  class="form-label"
-                  name="email"
-                  formControlName="email"
-                  >Email</label
+                <label for="exampleInputUsername" class="form-label"
+                  >Nombre Usuario</label
                 >
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="inputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="@gmail.com"
+                  name="username"
+                  [(ngModel)]="loginForm.username"
+                  required
+                  placeholder="......."
                 />
               </div>
               <div class="mb-3" width="60%">
-                <label
-                  for="inputPassword1"
-                  class="form-label"
-                  name="password"
-                  formControlName="password"
+                <label for="inputPassword1" class="form-label"
                   >Contraseña</label
                 >
                 <input
                   type="password"
                   class="form-control"
-                  id="exampleInputPassword1"
+                  name="password"
+                  [(ngModel)]="loginForm.password"
+                  required
                   placeholder="********"
                 />
                 <div id="passwordHelp" class="form-text">
@@ -107,7 +109,11 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="submit" (click)="okLogin()" class="btn btn-primary">
+            <button
+              type="submit"
+              (click)="formSubmit()"
+              class="btn btn-primary"
+            >
               Ingresar
             </button>
           </div>
