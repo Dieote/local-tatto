@@ -52,9 +52,12 @@ export class LoginService {
     }
   }
 
-  public getUserRol() {
-    let user = this.getUser();
-    return user.authorities[0].authority;
+  getUserRol(): string {
+    const user = this.getUser();
+    if (user && user.authorities) {
+      return user.authorities[0];
+    }
+    return 'No se encontro rol';
   }
 
   public getCurrentUser() {
