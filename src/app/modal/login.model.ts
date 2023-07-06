@@ -3,6 +3,7 @@ export class Login {
   password: string;
   userName: string;
   enabled: boolean;
+  authorities?: Authority[];
 
   constructor(
     id: number,
@@ -16,4 +17,16 @@ export class Login {
     this.userName = userName;
     this.enabled = enabled;
   }
+
+  static createEmpty(): Login {
+    return new Login(0, '', '', '', false);
+  }
+
+  setAuthority(authority: Authority[]): void {
+    this.authorities = authority;
+  }
+}
+
+export interface Authority {
+  authority: string;
 }

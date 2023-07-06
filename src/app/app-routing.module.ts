@@ -33,7 +33,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'home',
+    path: 'admin',
     component: AdminDashComponent,
     pathMatch: 'full',
     canActivate: [AdminGuard],

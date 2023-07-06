@@ -16,7 +16,7 @@ export class HeaderComponent {
 
   constructor(
     private toastr: ToastrService,
-    public loginservice: LoginService,
+    public loginService: LoginService,
     private router: Router
   ) {}
 
@@ -35,30 +35,33 @@ export class HeaderComponent {
       this.callToastrErrorForm('Password requerida.');
       return;
     }
-    this.loginservice.generateToken(this.loginForm).subscribe(
+    this.loginService.generateToken(this.loginForm).subscribe(
       (data: any) => {
-        console.log(data);
+        this.loginService.loginUser(data.token);
+        this.loginService.getCurrentUser().subscribe((user: any) => {
+          this.loginService.setUser(user);
 
-        this.loginservice.loginUser(data.token);
-        this.loginservice.getCurrentUser().subscribe((user: any) => {
-          this.loginservice.setUser(user);
-          console.log(user);
-
-          if (this.loginservice.getUserRol() == 'ADMIN') {
-            //dash admin
-            // window.location.href = '/admin';
-            this.router.navigate(['home']);
-          } else if (this.loginservice.getUserRol() == 'USER') {
-            //dash user
-            // window.location.href = '/user-dash';
-            this.router.navigate(['user-dash']);
+          // if (this.loginService.getUserRol() == 'ADMIN') {
+          //   //dash admin
+          //   // window.location.href = '/admin';
+          //   this.router.navigate(['admin']);
+          // } else if (this.loginService.getUserRol() == 'USER') {
+          //   //dash user
+          //   // window.location.href = '/user-dash';
+          //   this.router.navigate(['user-dash']);
+          // } else {
+          //   this.loginService.logOut();
+          // }
+          const getUserRol = this.loginService.getUserRol();
+          if (getUserRol === 'ADMIN' || getUserRol === 'USER') {
+            // this.router.navigate(['home']);
+            window.location.href = 'home';
           } else {
-            this.loginservice.logOut();
+            this.loginService.logOut();
           }
         });
       },
       (error) => {
-        console.log(error);
         this.callToastrErrorForm('Detalles no validos.');
       }
     );
@@ -82,7 +85,7 @@ export class HeaderComponent {
   }
 
   public logOut() {
-    this.loginservice.logOut();
+    this.loginService.logOut();
     window.location.reload();
   }
 }

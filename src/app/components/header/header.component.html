@@ -26,10 +26,10 @@
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a routerLink="/estudio" class="nav-link px-2">Estudio</a></li>
       <li><a routerLink="/designs" class="nav-link px-2">Diseños</a></li>
-      <li><a href="/admin-dash" class="nav-link px-2">Pircings</a></li>
+      <li><a href="/admin" class="nav-link px-2">Pircings</a></li>
       <li><a routerLink="/schedule" class="nav-link px-2">Agenda</a></li>
       <li>
-        <a href="/admin-dash" class="nav-link px-2 link-secondary">Contacto</a>
+        <a href="/admin" class="nav-link px-2 link-secondary">Contacto</a>
       </li>
     </ul>
     <div class="col-md-3 text-end d-flex align-items-center">
@@ -38,7 +38,7 @@
         class="btn btn-outline-primary me-2"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
-        *ngIf="!loginservice.isLoggedIn()"
+        *ngIf="!loginService.isLoggedIn()"
       >
         Ingresar
       </button>
@@ -46,14 +46,14 @@
         type="button"
         class="btn btn-outline-primary me-2"
         (click)="logOut()"
-        *ngIf="loginservice.isLoggedIn()"
+        *ngIf="loginService.isLoggedIn()"
       >
         Cerrar sesion
       </button>
       <a
         routerLink="/signIn"
         class="nav-link px-2 text-muted"
-        *ngIf="!loginservice.isLoggedIn()"
+        *ngIf="!loginService.isLoggedIn()"
         >Registrarse</a
       >
     </div>
