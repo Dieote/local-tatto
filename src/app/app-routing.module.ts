@@ -22,7 +22,12 @@ const routes: Routes = [
   { path: 'coments', component: ComentsComponent },
   { path: 'artists', component: ArtistComponent },
   { path: 'date', component: CitaFormComponent },
-  { path: 'schedule', component: ListCitasComponent },
+  {
+    path: 'schedule',
+    component: ListCitasComponent,
+    pathMatch: 'full',
+    canActivate: [AdminGuard],
+  },
   { path: 'designs', component: DesignsComponent },
   { path: 'signIn', component: SignupComponent },
   {
@@ -35,8 +40,6 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminDashComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
   },
   {
     path: 'user-dash',

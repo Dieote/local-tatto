@@ -9,3 +9,16 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+.centered {
+  text-align: center;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.muted {
+  opacity: 0.5;
+  color: gray;
+}

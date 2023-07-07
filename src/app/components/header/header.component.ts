@@ -56,6 +56,7 @@ export class HeaderComponent {
           if (getUserRol === 'ADMIN' || getUserRol === 'USER') {
             // this.router.navigate(['home']);
             window.location.href = 'home';
+            this.loginService.loginStatusSubject.next(true);
           } else {
             this.loginService.logOut();
           }

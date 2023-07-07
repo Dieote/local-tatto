@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService, IndividualConfig } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,26 +14,41 @@ export class SignupComponent implements OnInit {
     email: '',
   };
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private toastr: ToastrService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {}
 
   formSubmit() {
-    console.log(this.user);
+    // console.log(this.user);
     if (this.user.username == '' || this.user.username == null) {
-      alert('Nombre usuario requerido.');
+      this.callToastrErrorForm('Nombre usuario requerido.');
       return;
     }
 
     this.userService.addUser(this.user).subscribe(
       (data) => {
         console.log(data);
-        alert('Usuario agregado.');
+        this.callToastrSuccesForm('Usuario registrado correctamente.');
       },
       (error) => {
         console.log(error);
-        alert('Problema al agregar usuario.');
+        this.callToastrErrorForm('Error al registrar usuario.');
       }
     );
+  }
+  callToastrSuccesForm(mensaje: string) {
+    const toastrConfig: Partial<IndividualConfig> = {
+      progressBar: true,
+    };
+    this.toastr.success(mensaje, '', toastrConfig);
+  }
+  callToastrErrorForm(mensaje: string) {
+    const toastrConfig: Partial<IndividualConfig> = {
+      progressBar: true,
+    };
+    this.toastr.error(mensaje, '', toastrConfig);
   }
 }

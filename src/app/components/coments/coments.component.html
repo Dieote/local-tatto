@@ -29,7 +29,18 @@
           ></textarea>
         </form>
       </div>
-      <button class="btn btn-primary" (click)="sendComent()">Enviar</button>
+      <div>
+        <p class="centered muted" *ngIf="!loginService.isLoggedIn()">
+          Inicia sesion para realizar el comentario.
+        </p>
+        <button
+          class="btn btn-primary"
+          *ngIf="loginService.isLoggedIn()"
+          (click)="sendComent()"
+        >
+          Enviar
+        </button>
+      </div>
     </div>
     <br />
     <hr />
@@ -44,7 +55,9 @@
                 class="comment-container"
               >
                 <div>
-                  <strong class="username">Usuario no registrado:</strong>
+                  <strong class="username">{{
+                    loginService.getUser().userName
+                  }}</strong>
                   {{ userComment.comment }}
                 </div>
               </div>
@@ -55,6 +68,10 @@
               <div *ngFor="let userComment of arrayComentario">
                 <div>
                   <button
+                    *ngIf="
+                      loginService.isLoggedIn() &&
+                      loginService.getUserRol() === 'ADMIN'
+                    "
                     class="btn btn-danger float-right"
                     (click)="deleteComent(userComment.id)"
                   >

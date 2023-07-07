@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Comment } from 'src/app/modal/comment.model';
 
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-coments',
@@ -21,7 +22,8 @@ export class ComentsComponent implements OnInit {
 
   constructor(
     private commentsService: CommentsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public loginService: LoginService
   ) {}
 
   ngOnInit(): void {
