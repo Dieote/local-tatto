@@ -7,7 +7,7 @@ import { ResponseModal } from '../modal/response.modal';
 @Injectable()
 export class ArtistsService {
   artistas: TattoMaker[] = [];
-  urlBase = 'http://localhost:8080';
+  urlBase = 'https://render-backend-xt14.onrender.com';
 
   constructor(private httpClient: HttpClient) {}
 

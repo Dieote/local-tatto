@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CommentsService {
   userComment: Comment[] = [];
-  urlBase = 'http://localhost:8080';
+  urlBase = 'https://render-backend-xt14.onrender.com';
 
   constructor(private httpClient: HttpClient) {}
 
