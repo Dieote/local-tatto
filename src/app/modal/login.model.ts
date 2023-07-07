@@ -1,7 +1,7 @@
 export class Login {
   email: string;
   password: string;
-  userName: string;
+  username: string;
   enabled: boolean;
   authorities?: Authority[];
 
@@ -9,12 +9,12 @@ export class Login {
     id: number,
     email: string,
     password: string,
-    userName: string,
+    username: string,
     enabled: boolean
   ) {
     this.email = email;
     this.password = password;
-    this.userName = userName;
+    this.username = username;
     this.enabled = enabled;
   }
 

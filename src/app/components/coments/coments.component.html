@@ -55,9 +55,13 @@
                 class="comment-container"
               >
                 <div>
-                  <strong class="username">{{
-                    loginService.getUser().userName
-                  }}</strong>
+                  <strong class="username"
+                    >{{
+                    <strong class="username">{{
+                      loginService.getUser().username
+                    }}</strong>
+                    }}</strong
+                  >
                   {{ userComment.comment }}
                 </div>
               </div>

@@ -55,7 +55,7 @@ export class LoginService {
         jsonData.id,
         jsonData.email,
         jsonData.password,
-        jsonData.userName,
+        jsonData.username,
         jsonData.enabled
       );
       usuario.setAuthority(jsonData.authorities);
