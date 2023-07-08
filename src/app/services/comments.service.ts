@@ -2,11 +2,12 @@ import { Comment } from './../modal/comment.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import baserUrl from './helper';
 
 @Injectable()
 export class CommentsService {
   userComment: Comment[] = [];
-  urlBase = 'http://localhost:8080';
+  urlBase = baserUrl;
 
   constructor(private httpClient: HttpClient) {}
 
