@@ -8,7 +8,9 @@ import baserUrl from './helper';
 @Injectable()
 export class ArtistsService {
   artistas: TattoMaker[] = [];
+
   urlBase = baserUrl;
+
 
   constructor(private httpClient: HttpClient) {}
 
