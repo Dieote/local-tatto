@@ -9,7 +9,6 @@ export class CommentsService {
   userComment: Comment[] = [];
 
   urlBase = baserUrl;
-
   constructor(private httpClient: HttpClient) {}
 
   getAllComment(): Observable<Comment[]> {
