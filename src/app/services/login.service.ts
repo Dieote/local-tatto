@@ -16,12 +16,6 @@ export class LoginService {
     return this.http.post(`${baserUrl}/generate-token`, loginData);
   }
 
-  //guardamos token en localStorage
-  public loginUser(token: any) {
-    localStorage.setItem('token', token);
-    return true;
-  }
-
   public isLoggedIn() {
     let tokenStr = localStorage.getItem('token');
     if (tokenStr == undefined || tokenStr == '' || tokenStr == null) {
@@ -42,6 +36,17 @@ export class LoginService {
   public getToken() {
     return localStorage.getItem('token');
   }
+
+  public saveLocalUserKey(token: any, user: any) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    return true;
+  }
+  // //guardamos token y user en localStorage
+  // public loginUser(token: any) {
+  //   localStorage.setItem('token', token);
+  //   return true;
+  // }
 
   public setUser(user: any) {
     localStorage.setItem('user', JSON.stringify(user));

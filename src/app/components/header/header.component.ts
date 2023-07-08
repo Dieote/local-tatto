@@ -35,26 +35,21 @@ export class HeaderComponent {
       this.callToastrErrorForm('Password requerida.');
       return;
     }
+
+    console.log('Token enviado: ', this.loginService.getToken());
+
     this.loginService.generateToken(this.loginForm).subscribe(
       (data: any) => {
-        this.loginService.loginUser(data.token);
+        console.log('Token generado: ', data.token);
+        const token = data.token;
+        this.loginService.saveLocalUserKey(token, '');
+
         this.loginService.getCurrentUser().subscribe((user: any) => {
           this.loginService.setUser(user);
 
-          // if (this.loginService.getUserRol() == 'ADMIN') {
-          //   //dash admin
-          //   // window.location.href = '/admin';
-          //   this.router.navigate(['admin']);
-          // } else if (this.loginService.getUserRol() == 'USER') {
-          //   //dash user
-          //   // window.location.href = '/user-dash';
-          //   this.router.navigate(['user-dash']);
-          // } else {
-          //   this.loginService.logOut();
-          // }
           const getUserRol = this.loginService.getUserRol();
           if (getUserRol === 'ADMIN' || getUserRol === 'USER') {
-            // this.router.navigate(['home']);
+            // this.router.navigate(['/home']);
             window.location.href = 'home';
             this.loginService.loginStatusSubject.next(true);
           } else {
