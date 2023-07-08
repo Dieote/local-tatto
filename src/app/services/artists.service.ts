@@ -3,11 +3,13 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ResponseModal } from '../modal/response.modal';
+import baserUrl from './helper';
 
 @Injectable()
 export class ArtistsService {
   artistas: TattoMaker[] = [];
-  urlBase = 'https://render-backend-xt14.onrender.com';
+
+  urlBase = baserUrl;
 
   constructor(private httpClient: HttpClient) {}
 

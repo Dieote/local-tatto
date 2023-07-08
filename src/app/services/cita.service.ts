@@ -3,11 +3,13 @@ import { CitaModel } from './../modal/cita.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ResponseModal } from '../modal/response.modal';
+import baserUrl from './helper';
 
 @Injectable()
 export class CitaService {
   citas: CitaModel[] = [];
-  urlBase = 'https://render-backend-xt14.onrender.com';
+
+  urlBase = baserUrl;
 
   constructor(private httpClient: HttpClient) {}
 

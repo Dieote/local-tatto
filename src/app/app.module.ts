@@ -30,6 +30,7 @@ import { UserService } from './services/user.service';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { UserDashComponent } from './components/dashbords/user-dash/user-dash.component';
 import { AdminDashComponent } from './components/dashbords/admin-dash/admin-dash.component';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { AdminDashComponent } from './components/dashbords/admin-dash/admin-dash
     CitaService,
     UserService,
     authInterceptorProviders,
+    LoginService,
   ],
   bootstrap: [AppComponent],
 })

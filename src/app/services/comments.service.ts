@@ -2,12 +2,13 @@ import { Comment } from './../modal/comment.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import baserUrl from './helper';
 
 @Injectable()
 export class CommentsService {
   userComment: Comment[] = [];
-  urlBase = 'https://render-backend-xt14.onrender.com';
 
+  urlBase = baserUrl;
   constructor(private httpClient: HttpClient) {}
 
   getAllComment(): Observable<Comment[]> {
