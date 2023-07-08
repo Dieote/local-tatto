@@ -7,6 +7,7 @@ import baserUrl from './helper';
 @Injectable()
 export class CommentsService {
   userComment: Comment[] = [];
+
   urlBase = baserUrl;
 
   constructor(private httpClient: HttpClient) {}
