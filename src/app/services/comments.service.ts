@@ -1,5 +1,5 @@
 import { Comment } from './../modal/comment.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import baserUrl from './helper';
@@ -16,9 +16,20 @@ export class CommentsService {
   }
 
   createComment(comment: Comment): Observable<string> {
+    const option = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {
+        comment: comment.comment,
+        username: comment.username,
+      },
+    };
+
     return this.httpClient.post<string>(
       this.urlBase + '/post-comments',
-      comment
+      option.body,
+      { headers: option.headers }
     );
   }
 
