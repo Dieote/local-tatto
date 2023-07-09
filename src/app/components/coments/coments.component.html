@@ -1,4 +1,4 @@
-<div>
+<div class="mx-auto">
   <h2 class="fw-bolder">
     ¡Nos encantaría escuchar tu experiencia en Tatto-Art.E!
   </h2>
@@ -10,72 +10,83 @@
     impresiones y elogios sobre nuestro equipo de artistas, la calidad de los
     tatuajes y la atención al cliente.
   </p>
-
+  <div class="guarda centered">
+    <img src="../../assets/guarda.png" alt="guarda" />
+    <img src="../../assets/guarda.png" alt="guarda" />
+  </div>
   <div class="row align-items-center">
-    <div>
+    <div class="col-md-6 mx-auto">
       <div class="input-group mb-3">
-        <label id="label-contact"
-          ><strong>Describe tu experiencia:</strong></label
-        >
         <form [formGroup]="form">
+          <div class="input-group mb-3">
+            <label><strong>Tu nombre:</strong></label>
+            <input
+              formControlName="formUsername"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <label id="label-contact"
+            ><strong>Describe tu experiencia:</strong></label
+          >
           <textarea
             formControlName="formComentario"
-            placeholder="Tu opinion nos importa.."
+            placeholder="Tu opinión nos importa..."
             class="form-control"
             aria-label="with-textarea"
             type="text"
             rows="3"
             cols="70"
           ></textarea>
+          <button
+            class="btn btn-primary mt-3"
+            *ngIf="loginService.isLoggedIn()"
+            (click)="sendComent()"
+          >
+            Enviar
+          </button>
+          <p class="centered muted mt-3" *ngIf="!loginService.isLoggedIn()">
+            Inicia sesión para realizar el comentario.
+          </p>
         </form>
       </div>
-      <div>
-        <p class="centered muted" *ngIf="!loginService.isLoggedIn()">
-          Inicia sesion para realizar el comentario.
-        </p>
-        <button
-          class="btn btn-primary"
-          *ngIf="loginService.isLoggedIn()"
-          (click)="sendComent()"
-        >
-          Enviar
-        </button>
-      </div>
     </div>
-    <br />
-    <hr />
-    <div class="input-group mb-3">
-      <h4>Valoraciones</h4>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10">
-            <div *ngIf="arrayComentario.length > 0">
-              <div
-                *ngFor="let userComment of arrayComentario"
-                class="comment-container"
-              >
-                <div>
-                  <strong class="username">Usuario no registrado:</strong>
-                  {{ userComment.comment }}
-                </div>
+  </div>
+  <hr />
+  <div class="input-group mb-3">
+    <h4 class="text-center">Valoraciones</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <div *ngIf="arrayComentario.length > 0">
+            <div
+              *ngFor="let userComment of arrayComentario"
+              class="comment-container"
+            >
+              <div>
+                <strong class="username"
+                  >Usuario: {{ userComment.username }}</strong
+                >
+                {{ userComment.comment }}
               </div>
+              <hr class="comment-divider" />
             </div>
           </div>
-          <div class="col-md-2">
-            <div *ngIf="arrayComentario.length > 0">
-              <div *ngFor="let userComment of arrayComentario">
-                <div>
-                  <button
-                    *ngIf="
-                      loginService.isLoggedIn() &&
-                      loginService.getUserRol() === 'ADMIN'
-                    "
-                    class="btn btn-danger float-right"
-                    (click)="deleteComent(userComment.id)"
-                  >
-                    Eliminar
-                  </button>
-                </div>
+        </div>
+        <div class="col-md-2">
+          <div *ngIf="arrayComentario.length > 0">
+            <div *ngFor="let userComment of arrayComentario">
+              <div>
+                <button
+                  *ngIf="
+                    loginService.isLoggedIn() &&
+                    loginService.getUserRol() === 'ADMIN'
+                  "
+                  class="btn btn-danger float-right"
+                  (click)="deleteComent(userComment.id)"
+                >
+                  Eliminar
+                </button>
               </div>
             </div>
           </div>
