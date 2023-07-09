@@ -68,7 +68,7 @@ export class CitaFormComponent implements OnInit {
     this.callToastrSuccesForm('Cita creada correctamente.');
     this.citaService.createCita(newCita).subscribe((data) => {
       console.log('Se creo la cita', data);
-      this.route.navigate(['date']);
+      this.route.navigate(['schedule']);
     });
   }
 
