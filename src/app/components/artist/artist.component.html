@@ -40,7 +40,7 @@
                 loginservice.isLoggedIn() &&
                 loginservice.getUserRol() === 'ADMIN'
               "
-              href="{{ '/form-artist' }}"
+              [routerLink]="['/form-artist', tattoMaker.id]"
               class="btn btn-outline-light text-warning"
               >Editar</a
             >

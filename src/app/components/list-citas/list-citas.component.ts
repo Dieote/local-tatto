@@ -1,3 +1,4 @@
+import { LoginService } from 'src/app/services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { IndividualConfig, ToastrService } from 'ngx-toastr';
 import { CitaModel } from 'src/app/modal/cita.model';
@@ -13,7 +14,8 @@ export class ListCitasComponent implements OnInit {
 
   constructor(
     private citaService: CitaService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public loginService: LoginService
   ) {}
 
   ngOnInit() {
@@ -26,9 +28,7 @@ export class ListCitasComponent implements OnInit {
     });
   }
   deleteCita(id: number): void {
-    this.toastr.success('Cita eliminada correctamente.', 'titulo', {
-      progressBar: true,
-    });
+    this.toastr.success('Cita eliminada correctamente.');
     this.citaService.deleteCita(id).subscribe(() => {
       this.subscribeArrayCita();
     });

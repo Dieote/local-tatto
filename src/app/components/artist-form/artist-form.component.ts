@@ -84,6 +84,7 @@ export class ArtistFormComponent implements OnInit {
 
   private tattoMakerCreate(id?: number): TattoMaker {
     let tatuadorAux = new TattoMaker(
+      id || 0,
       this.form.value.nameForm || '',
       this.form.value.descriptionForm || '',
       this.form.value.imageForm || '',

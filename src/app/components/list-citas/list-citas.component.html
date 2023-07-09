@@ -17,7 +17,13 @@
         <td>{{ cita.phoneCita }}</td>
         <td>{{ cita.availableCita }}</td>
         <td>
-          <button class="btn btn-danger" (click)="deleteCita(cita.id!)">
+          <button
+            *ngIf="
+              loginService.isLoggedIn() && loginService.getUserRol() === 'ADMIN'
+            "
+            class="btn btn-danger"
+            (click)="deleteCita(cita.id!)"
+          >
             Eliminar
           </button>
         </td>
@@ -27,6 +33,13 @@
   <div *ngIf="citas.length === 0">
     <p>No hay citas registradas.</p>
   </div>
+</div>
+<div class="muted">
+  <p>
+    <strong
+      >Tu tatuador se pondra en contacto contigo para confirmar el dia.</strong
+    >
+  </p>
 </div>
 <div class="d-flex justify-content-center">
   <img

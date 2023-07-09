@@ -25,8 +25,6 @@ const routes: Routes = [
   {
     path: 'schedule',
     component: ListCitasComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
   },
   { path: 'designs', component: DesignsComponent },
   { path: 'signIn', component: SignupComponent },
@@ -35,6 +33,10 @@ const routes: Routes = [
     component: ArtistFormComponent,
     pathMatch: 'full',
     canActivate: [AdminGuard],
+  },
+  {
+    path: 'form-artist/:id',
+    component: ArtistFormComponent,
   },
 
   {
