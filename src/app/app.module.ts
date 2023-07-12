@@ -31,6 +31,7 @@ import { authInterceptorProviders } from './services/auth.interceptor';
 import { UserDashComponent } from './components/dashbords/user-dash/user-dash.component';
 import { AdminDashComponent } from './components/dashbords/admin-dash/admin-dash.component';
 import { LoginService } from './services/login.service';
+import { MediaService } from './services/media.service';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { LoginService } from './services/login.service';
     UserService,
     authInterceptorProviders,
     LoginService,
+    MediaService,
   ],
   bootstrap: [AppComponent],
 })

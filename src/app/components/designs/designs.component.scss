@@ -1,4 +1,48 @@
-.shadow-gray {
-  box-shadow: 0 0 20px 0 rgba(0, 0, 10, 0.2);
+.font-italic {
+  font-style: italic;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.shadow-gray {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 10, 0.2);
+  width: 70%;
+  margin: 0 auto;
+}
+.muted {
+  opacity: 0.5;
+  color: gray;
+  text-align: center;
+
+}
+
+
+div.gallery {
+  margin: 5px auto;
+  width: 90%;
+}
+
+div.gallery:hover {
+  border: 1px solid #f0f0f0;
+}
+
+div.gallery img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 300px;
+  transition: transform 0.3s;
+  border: 2px solid #131212;
+}
+
+div.gallery img:hover {
+  transform: scale(1.1);
+}
+
+.center {
+  text-align: center;
+}
