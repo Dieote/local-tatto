@@ -1,16 +1,1 @@
-
-@import 'ngx-toastr/toastr';
-
-// - crear una clase dia
-// maniana :boolean
-// tarde
-// noche
-
-// disponibilidad
-// revisar que es un enum
-// 0 disponible
-// 1 medio disponible
-// 2 lleno
-// en la clase persona un array que sean Dias<dia>
-
-// o sino manejar las citas por dia, que el input sea de tipo date (googlear)
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';

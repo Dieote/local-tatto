@@ -1,111 +1,62 @@
+<h1 class="text-center font-italic">Diseños</h1>
+<p class="text-center fs-5 shadow-gray">
+  La sección de diseños es el corazón de nuestra aplicación, donde los
+  talentosos tatuadores de todo el mundo pueden mostrar su increíble arte. Es un
+  espacio dedicado a la creatividad, donde los profesionales de la tinta pueden
+  compartir imágenes de los tatuajes que han realizado.
+</p>
+<br />
+<br />
 <div class="album py-5 bg-light">
-  <p class="text-center fst-italic fs-5 shadow-gray">
-    La sección de diseños es el corazón de nuestra aplicación, donde los
-    talentosos tatuadores de todo el mundo pueden mostrar su increíble arte. Es
-    un espacio dedicado a la creatividad, donde los profesionales de la tinta
-    pueden compartir imágenes de los tatuajes que han realizado.
-  </p>
   <br />
-  <br />
-  <br />
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img
-            src="assets/ejemploDise.jpeg"
-            class="img-fluid rounded-pill"
-            alt="localTatto"
-            width="100%"
+
+  <div class="d-flex justify-content-center">
+    <form
+      class="w-50"
+      *ngIf="
+        loginService.getUserRol() === 'ADMIN' ||
+        loginService.getUserRol() === 'USER'
+      "
+    >
+      <div class="mb-5">
+        <label for="image" class="form-label">Cargar nueva imagen:</label>
+        <div class="input-group">
+          <input
+            class="form-control"
+            type="file"
+            id="image"
+            accept="image/*"
+            #fileInput
           />
-          <div class="card-body">
-            <p class="card-text">
-              Descubre y elige diseños personalizados de nuestros artistas. Si
-              ninguno te convence, comunicate con tu artista para tu propio
-              diseño.
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Ver
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Editar
-                </button>
-              </div>
-            </div>
-          </div>
+          <button
+            type="submit"
+            class="btn btn-primary ms-2"
+            (click)="saveImage()"
+          >
+            Guardar
+          </button>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img
-            src="assets/ejemploDise.jpeg"
-            class="img-fluid rounded-pill"
-            alt="localTatto"
-            width="100%"
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Descubre y elige diseños personalizados de nuestros artistas. Si
-              ninguno te convence, comunicate con tu artista para tu propio
-              diseño.
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Ver
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Editar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img
-            src="assets/ejemploDise.jpeg"
-            class="img-fluid rounded-pill"
-            alt="localTatto"
-            width="100%"
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Descubre y elige diseños personalizados de nuestros artistas. Si
-              ninguno te convence, comunicate con tu artista para tu propio
-              diseño.
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Ver
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Editar
-                </button>
-              </div>
-            </div>
+    </form>
+  </div>
+  <div class="muted" *ngIf="!loginService.isLoggedIn()">
+    <p>
+      <strong>Inicia sesion para cargar una imagen.</strong>
+    </p>
+  </div>
+  <div *ngIf="images.length > 0">
+    <div class="gallery center">
+      <div class="row">
+        <div class="col-md-3" *ngFor="let image of images; let i = index">
+          <div class="image-wrapper">
+            <img [src]="image.imageUrl" alt="Imagen cargada" class="rounded" />
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-center">
-    <form [formGroup]="formAlbum" class="w-50">
-      <div class="mb-3">
-        <label for="imagen" class="form-label">Cargar nueva imagen:</label>
-        <input
-          class="form-control"
-          type="file"
-          id="formFile"
-          name="imagen"
-          formControlName="imageForm"
-        />
-      </div>
-      <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
+
+  <div *ngIf="images.length === 0" class="text-center mt-5">
+    <p>No se han cargado imágenes.</p>
   </div>
 </div>
