@@ -1,5 +1,5 @@
 <div class="mx-auto">
-  <h2 class="fw-bolder">
+  <h2 class="fw-bolder text-center">
     ¡Nos encantaría escuchar tu experiencia en Tatto-Art.E!
   </h2>
   <br />
@@ -10,7 +10,7 @@
     impresiones y elogios sobre nuestro equipo de artistas, la calidad de los
     tatuajes y la atención al cliente.
   </p>
-  <div class="guarda centered">
+  <div class="guarda text-center">
     <img src="../../assets/guarda.png" alt="guarda" />
     <img src="../../assets/guarda.png" alt="guarda" />
   </div>
@@ -18,7 +18,7 @@
     <div class="col-md-6 mx-auto">
       <div class="input-group mb-3">
         <form [formGroup]="form">
-          <div class="input-group mb-3">
+          <div class="mb-3">
             <label><strong>Tu nombre:</strong></label>
             <input
               formControlName="formUsername"
@@ -45,7 +45,10 @@
           >
             Enviar
           </button>
-          <p class="centered muted mt-3" *ngIf="!loginService.isLoggedIn()">
+          <p
+            class="text-center mt-3 text-muted"
+            *ngIf="!loginService.isLoggedIn()"
+          >
             Inicia sesión para realizar el comentario.
           </p>
         </form>
@@ -64,9 +67,7 @@
               class="comment-container"
             >
               <div>
-                <strong class="username"
-                  >Usuario: {{ userComment.username }}</strong
-                >
+                <strong class="username">{{ userComment.username }}</strong>
                 {{ userComment.comment }}
               </div>
               <hr class="comment-divider" />
@@ -82,7 +83,7 @@
                     loginService.isLoggedIn() &&
                     loginService.getUserRol() === 'ADMIN'
                   "
-                  class="btn btn-danger float-right"
+                  class="btn btn-danger float-end"
                   (click)="deleteComent(userComment.id)"
                 >
                   Eliminar
