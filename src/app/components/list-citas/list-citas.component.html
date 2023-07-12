@@ -1,47 +1,50 @@
 <div class="container">
-  <h3>Listado de Citas</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Cita</th>
-        <th>Nombre</th>
-        <th>Teléfono</th>
-        <th>Disponible</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cita of citas">
-        <td>{{ cita.id }}</td>
-        <td>{{ cita.nameCita }}</td>
-        <td>{{ cita.phoneCita }}</td>
-        <td>{{ cita.availableCita }}</td>
-        <td>
-          <button
-            *ngIf="
-              loginService.isLoggedIn() && loginService.getUserRol() === 'ADMIN'
-            "
-            class="btn btn-danger"
-            (click)="deleteCita(cita.id!)"
-          >
-            Eliminar
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div *ngIf="citas.length === 0">
-    <p>No hay citas registradas.</p>
+  <h3 class="text-center">Listado de Citas</h3>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Cita</th>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Disponible</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <td>{{ cita.id }}</td>
+          <td>{{ cita.nameCita }}</td>
+          <td>{{ cita.phoneCita }}</td>
+          <td>{{ cita.availableCita }}</td>
+          <td>
+            <button
+              *ngIf="
+                loginService.isLoggedIn() &&
+                loginService.getUserRol() === 'ADMIN'
+              "
+              class="btn btn-danger"
+              (click)="deleteCita(cita.id!)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="citas.length === 0" class="text-center">
+      <p>No hay citas registradas.</p>
+    </div>
   </div>
 </div>
-<div class="muted">
+<div class="text-center mt-4">
   <p>
     <strong
-      >Tu tatuador se pondra en contacto contigo para confirmar el dia.</strong
+      >Tu tatuador se pondrá en contacto contigo para confirmar el día.</strong
     >
   </p>
 </div>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mt-4">
   <img
     src="assets/niceTatto.jpeg"
     width="400"
