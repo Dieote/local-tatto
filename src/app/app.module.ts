@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,8 @@ import { UserDashComponent } from './components/dashbords/user-dash/user-dash.co
 import { AdminDashComponent } from './components/dashbords/admin-dash/admin-dash.component';
 import { LoginService } from './services/login.service';
 import { MediaService } from './services/media.service';
+import { SpinnerModule } from './shared/components/spinner/spinner.module';
+import { SpinnerInterceptor } from './shared/components/spinner.interceptor';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { MediaService } from './services/media.service';
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
+    SpinnerModule,
   ],
   providers: [
     ArtistsService,
@@ -72,6 +75,7 @@ import { MediaService } from './services/media.service';
     authInterceptorProviders,
     LoginService,
     MediaService,
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

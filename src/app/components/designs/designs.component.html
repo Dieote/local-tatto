@@ -50,6 +50,12 @@
         <div class="col-md-3" *ngFor="let image of images; let i = index">
           <div class="image-wrapper">
             <img [src]="image.imageUrl" alt="Imagen cargada" class="rounded" />
+            <!-- <button
+              class="btn btn-danger btn-sm delete-button"
+              (click)="deleteImage(image.id)"
+            >
+              <strong>X</strong> -->
+            <!-- </button> -->
           </div>
         </div>
       </div>
