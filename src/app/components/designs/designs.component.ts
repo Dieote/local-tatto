@@ -30,6 +30,7 @@ export class DesignsComponent {
       this.mediaService.uploadFile(file).subscribe((response) => {
         console.log('response', response);
         this.loadImages(file);
+        this.callToastrSuccess('Imagen cargada correctamente.', 'Éxito');
       });
     }
   }
@@ -41,8 +42,8 @@ export class DesignsComponent {
       const formImage = new FormData();
       formImage.append('file', file);
       this.mediaService.uploadFile(file).subscribe((response) => {
-        this.callToastrSuccesForm('Imagen cargada correctamente.');
         this.loadImages(file);
+        this.callToastrSuccess('Imagen cargada correctamente.', 'Éxito');
       });
     }
   }
@@ -81,15 +82,15 @@ export class DesignsComponent {
 
   deleteImage(id: number): void {
     this.mediaService.deleteImage(id).subscribe(() => {
-      this.toastr.success('Imagen eliminada correctamente.');
       this.images = this.images.filter((image) => image.id !== id);
+      this.callToastrSuccess('Imagen eliminada correctamente.', 'Éxito');
     });
   }
 
-  callToastrSuccesForm(mensaje: string) {
+  callToastrSuccess(mensaje: string, titulo: string) {
     const toastrConfig: Partial<IndividualConfig> = {
       progressBar: true,
     };
-    this.toastr.success(mensaje, '', toastrConfig);
+    this.toastr.success(mensaje, titulo, toastrConfig);
   }
 }

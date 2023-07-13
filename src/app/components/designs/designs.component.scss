@@ -46,3 +46,13 @@ div.gallery img:hover {
 .center {
   text-align: center;
 }
+.image-wrapper {
+  position: relative;
+}
+
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+}
