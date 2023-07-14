@@ -31,7 +31,7 @@ export class MediaService {
     });
   }
 
-  deleteImage(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.urlBase}/media/delete-image/${id}`);
+  deleteImage(uuid: string): Observable<any> {
+    return this.http.delete<void>(`${this.urlBase}/media/delete-image/${uuid}`);
   }
 }

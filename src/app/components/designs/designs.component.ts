@@ -51,17 +51,20 @@ export class DesignsComponent {
   loadImages(file: File) {
     const reader = new FileReader();
     reader.onload = (event: any) => {
-      const imageModal = new ImageModal(
-        0,
-        file.name,
-        file.type,
-        file.size,
-        '',
-        '',
-        [],
-        event.target.result
-      );
-      this.images.push(imageModal);
+      this.mediaService.uploadFile(file).subscribe((response) => {
+        const imageModal = new ImageModal(
+          0,
+          response.fileName,
+          response.fileType,
+          response.size,
+          response.uuid,
+          response.systemName,
+          [],
+          event.target.result
+        );
+        this.images.push(imageModal);
+        this.callToastrSuccess('Imagen guardada correctamente.', 'Éxito');
+      });
     };
     reader.readAsDataURL(file);
   }
@@ -75,16 +78,24 @@ export class DesignsComponent {
         });
       },
       (error) => {
+        this.callToastrError('Error al eliminar la imagen');
         console.log('Error al cargar la imagen', error);
       }
     );
   }
 
-  deleteImage(id: number): void {
-    this.mediaService.deleteImage(id).subscribe(() => {
-      this.images = this.images.filter((image) => image.id !== id);
-      this.callToastrSuccess('Imagen eliminada correctamente.', 'Éxito');
-    });
+  deleteImage(uuid: string): void {
+    console.log('Uuid:', uuid);
+    this.mediaService.deleteImage(uuid).subscribe(
+      () => {
+        this.images = this.images.filter((image) => image.uuid !== uuid);
+        this.callToastrSuccess('Imagen eliminada correctamente.', 'Éxito');
+      },
+      (error: any) => {
+        console.error('Error al eliminar la imagen.', error);
+        this.callToastrError('Error al eliminar la imagen');
+      }
+    );
   }
 
   callToastrSuccess(mensaje: string, titulo: string) {
@@ -92,5 +103,11 @@ export class DesignsComponent {
       progressBar: true,
     };
     this.toastr.success(mensaje, titulo, toastrConfig);
+  }
+  callToastrError(mensaje: string) {
+    const toastrConfig: Partial<IndividualConfig> = {
+      progressBar: true,
+    };
+    this.toastr.error(mensaje, '', toastrConfig);
   }
 }
