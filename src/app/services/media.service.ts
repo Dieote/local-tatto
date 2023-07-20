@@ -15,12 +15,17 @@ export class MediaService {
   uploadFile(file: File): Observable<ImageModal> {
     const formData = new FormData();
     formData.append('file', file);
-
     return this.http.post<ImageModal>(`${this.urlBase}/media/upload`, formData);
   }
 
   getImages(): Observable<ImageModal[]> {
     return this.http.get<ImageModal[]>(`${this.urlBase}/media/images`);
+  }
+
+  getImageByArtist(artistId: number): Observable<string> {
+    return this.http.get<string>(
+      `${this.urlBase}/media/imagesByArtist/${artistId}`
+    );
   }
 
   getImageByName(fileName: string): Observable<Blob> {
