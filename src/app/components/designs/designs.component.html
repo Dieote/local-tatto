@@ -51,6 +51,7 @@
           <div class="image-wrapper">
             <img [src]="image.imageUrl" alt="Imagen cargada" class="rounded" />
             <button
+              *ngIf="loginService.isLoggedIn()"
               class="btn btn-danger btn-sm delete-button"
               (click)="deleteImage(image.uuid)"
             >
