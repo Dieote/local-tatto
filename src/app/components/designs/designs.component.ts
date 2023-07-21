@@ -78,7 +78,7 @@ export class DesignsComponent {
         });
       },
       (error) => {
-        this.callToastrError('Error al eliminar la imagen');
+        this.callToastrError('Error al cargar las imagenes');
         console.log('Error al cargar la imagen', error);
       }
     );
@@ -88,7 +88,7 @@ export class DesignsComponent {
     console.log('Uuid:', uuid);
     this.mediaService.deleteImage(uuid).subscribe(
       () => {
-        this.images = this.images.filter((image) => image.uuid !== uuid);
+        this.images = this.images.filter((image) => image.uuid == uuid);
         this.callToastrSuccess('Imagen eliminada correctamente.', 'Éxito');
       },
       (error: any) => {

@@ -7,14 +7,15 @@ import { TattoMaker } from '../modal/tattoMaker.model';
 })
 export class TattoMakersService {
   constructor() {}
-  getTatuadores(): Observable<TattoMaker[]> {
+  /*getTatuadores(): Observable<TattoMaker[]> {
     return of([
       new TattoMaker(
         'Tatuador1',
         'Descripcion del tatuador1',
         'urlImagen',
         '99887766',
-        'Disponible L - J / 10hs a 12hs'
+        'Disponible L - J / 10hs a 12hs',
+
       ),
       new TattoMaker(
         'Tatuador2',
@@ -31,5 +32,5 @@ export class TattoMakersService {
         'Disponible L - J / 10hs a 12hs'
       ),
     ]);
-  }
+  }*/
 }

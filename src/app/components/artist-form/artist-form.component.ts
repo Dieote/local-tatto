@@ -50,7 +50,7 @@ export class ArtistFormComponent implements OnInit {
       this.form
         .get('descriptionForm')
         ?.patchValue(artistById?.description || '');
-      this.form.get('imageForm')?.patchValue(artistById?.image || '');
+      this.form.get('imageForm')?.patchValue(artistById?.imageName || '');
       this.form.get('phoneForm')?.patchValue(artistById?.phone || '');
       this.form.get('availableForm')?.patchValue(artistById?.available || '');
     });

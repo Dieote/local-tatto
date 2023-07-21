@@ -16,7 +16,11 @@
       *ngFor="let tattoMaker of tatuadores"
     >
       <div class="card card-custom mb-4">
-        <img src="assets/defauProf.jpeg" class="img-thumbnail" alt="fotiti" />
+        <img
+          [src]="getUrlImage(tattoMaker.imageName)"
+          class="img-thumbnail"
+          alt="fotiti"
+        />
         <div class="card-body">
           <h5 class="card-title card-name">
             {{ tattoMaker.name | titlecase }}
