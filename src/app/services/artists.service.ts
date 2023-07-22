@@ -30,14 +30,22 @@ export class ArtistsService {
       artista
     );
   }
+  uploadImageArtist(artistId: number, file: File): Observable<ResponseModal> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    return this.httpClient.post<ResponseModal>(
+      `${this.urlBase}/post-image-artist/${artistId}`,
+      formData
+    );
+  }
 
   updateArtist(artista: TattoMaker): Observable<ResponseModal> {
     const upDate = this.urlBase + '/update-artist/';
     return this.httpClient.put<ResponseModal>(upDate, artista);
   }
 
-  deleteArtist(id: number): Observable<ResponseModal> {
-    const idNum = this.urlBase + '/delete-artist/' + id;
-    return this.httpClient.delete<ResponseModal>(idNum);
+  deleteArtist(artistId: number): Observable<ResponseModal> {
+    const idArt = this.urlBase + '/delete-artist/' + artistId;
+    return this.httpClient.delete<ResponseModal>(idArt);
   }
 }

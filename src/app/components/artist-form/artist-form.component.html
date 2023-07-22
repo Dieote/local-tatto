@@ -59,26 +59,24 @@
           class="form-control"
           type="file"
           id="formFile"
-          name="imagen"
+          name="image"
           formControlName="imageForm"
         />
       </div>
       <br />
-      <button type="submit" (click)="addTattoMaker()" class="btn btn-primary">
+      <button
+        *ngIf="!artistaDataLoad"
+        type="submit"
+        (click)="addTattoMaker()"
+        class="btn btn-primary"
+      >
         Guardar
       </button>
-
       <button
-        type="submit"
-        (click)="deleteTattoMaker(idAuthor)"
-        class="btn btn-secondary"
-      >
-        Eliminar
-      </button>
-      <button
+        *ngIf="artistaDataLoad"
         type="submit"
         (click)="editTattoMaker()"
-        class="btn btn-secondary"
+        class="btn btn-primary"
       >
         Editar
       </button>
