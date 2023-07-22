@@ -5,6 +5,7 @@ import { TattoMaker } from 'src/app/modal/tattoMaker.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IndividualConfig, ToastrService } from 'ngx-toastr';
+import { ResponseModal } from 'src/app/modal/response.modal';
 
 @Component({
   selector: 'app-artist-form',
@@ -13,6 +14,7 @@ import { IndividualConfig, ToastrService } from 'ngx-toastr';
 })
 export class ArtistFormComponent implements OnInit {
   artistas: TattoMaker[] = [];
+  artistaDataLoad: boolean = false;
 
   idAuthor: number = 0;
   constructor(
@@ -33,7 +35,10 @@ export class ArtistFormComponent implements OnInit {
 
   ngOnInit() {
     this.idAuthor = this.route.snapshot.params['id'];
-    this.getArtistById();
+    if (this.idAuthor) {
+      this.getArtistById();
+      this.artistaDataLoad = true;
+    }
   }
 
   getArtisList(): void {
@@ -58,19 +63,38 @@ export class ArtistFormComponent implements OnInit {
 
   addTattoMaker() {
     const tatuador = this.tattoMakerCreate();
-    this.callToastrSuccesForm('Artista creado correctamente.');
-    this.artistsService.createArtist(tatuador).subscribe((data) => {
-      console.log('se creo el artista', data);
-      this.router.navigate(['artists']);
-    });
+    let file: File;
+    const imageInput = document.getElementById('formFile') as HTMLInputElement;
+    if (imageInput.files) {
+      //TODO: Arreglar cuando no se carga una imagen, no llamar al service.
+      file = imageInput.files[0];
+    }
+
+    this.artistsService.createArtist(tatuador).subscribe(
+      (response: ResponseModal) => {
+        if (response.status === 'OK') {
+          console.log('Se creo el artista', response.message);
+
+          this.uploadImage(response.id, file);
+          this.callToastrSuccesForm('Artista creado correctamente.');
+          this.router.navigate(['artists']);
+        } else {
+          console.error('Error al crear la imagen:', response.message);
+        }
+      },
+      (error) => {
+        console.error('Error al crear el artista', error);
+      }
+    );
+    this.router.navigate(['artists']);
   }
 
-  deleteTattoMaker(idArtist: number): void {
-    this.callToastrSuccesForm('Artista eliminado correctamente.');
-    this.artistsService.deleteArtist(idArtist).subscribe(() => {
-      this.getArtisList();
-      this.router.navigate(['artists']);
-    });
+  private uploadImage(artistaId: number, imageFile: File) {
+    this.artistsService
+      .uploadImageArtist(artistaId, imageFile)
+      .subscribe((response) => {
+        console.log('Imagen cargada correctamente:', response);
+      });
   }
 
   editTattoMaker(): void {

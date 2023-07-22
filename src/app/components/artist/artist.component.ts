@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TattoMaker } from 'src/app/modal/tattoMaker.model';
 import { ArtistsService } from 'src/app/services/artists.service';
 import { LoginService } from 'src/app/services/login.service';
 import baserUrl from 'src/app/services/helper';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-artist',
@@ -18,7 +19,9 @@ export class ArtistComponent implements OnInit {
   constructor(
     private artistsService: ArtistsService,
     public loginservice: LoginService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,5 +44,26 @@ export class ArtistComponent implements OnInit {
     } else {
       return 'assets/defauProf.jpeg';
     }
+  }
+
+  deleteArtist(artistId: number): void {
+    this.artistsService.deleteArtist(artistId).subscribe(
+      (data: any) => {
+        this.toastr.success('Artista eliminado correctamente.');
+        console.log(data.message);
+        this.tatuadores = this.tatuadores.filter(
+          (tattoMaker) => tattoMaker.id !== artistId
+        );
+        this.router.navigate(['artists']);
+      },
+      (error) => {
+        this.toastr.error('Error al eliminar el Artista.');
+        console.error('Error al eliminar el Artista:', error);
+      }
+    );
+  }
+
+  callSuccesToastr(mensaje: string) {
+    this.toastr.success(mensaje);
   }
 }

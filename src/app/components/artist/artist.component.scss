@@ -1,9 +1,25 @@
 .card-custom {
-  background-color: #d7e3ec; // Fondo de color pastel
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1); // Sombras en los bordes
+  background-color: #d7e3ec;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card-name {
-  font-style: italic; // Fuente en itálica
-  font-size: 1.2rem; // Tamaño de fuente aumentado en 2px
+  font-style: italic;
+  font-size: 1.2rem;
+}
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+}
+.card-body {
+  min-height: 150px;
+}
+
+
+.img-thumbnail {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
