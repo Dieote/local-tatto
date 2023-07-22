@@ -22,7 +22,6 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   formSubmit() {
-    // console.log(this.user);
     if (this.user.username == '' || this.user.username == null) {
       this.callToastrErrorForm('Nombre usuario requerido.');
       return;
