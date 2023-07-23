@@ -22,19 +22,6 @@ export class DesignsComponent {
     this.loadImagesFromBack();
   }
 
-  upload(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const formImage = new FormData();
-      formImage.append('file', file);
-      this.mediaService.uploadFile(file).subscribe((response) => {
-        console.log('response', response);
-        this.loadImages(file);
-        this.callToastrSuccess('Imagen cargada correctamente.', 'Éxito');
-      });
-    }
-  }
-
   saveImage() {
     const fileInput = document.getElementById('image') as HTMLInputElement;
     const file = fileInput.files ? fileInput.files[0] : null;

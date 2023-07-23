@@ -4,14 +4,7 @@ export class CitaModel {
   phoneCita: string;
   artist: string;
   availableCita: string;
-  constructor(
-    // idArtist: number,
-    name: string,
-    artist: string,
-    phone: string,
-    available: string
-  ) {
-    // this.idArtist = idArtist;
+  constructor(name: string, artist: string, phone: string, available: string) {
     this.nameCita = name;
     this.artist = artist;
     this.phoneCita = phone;
