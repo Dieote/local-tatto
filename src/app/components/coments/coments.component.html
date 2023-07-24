@@ -60,7 +60,7 @@
     <h4 class="text-center">Valoraciones</h4>
     <div class="container">
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div *ngIf="arrayComentario.length > 0">
             <div
               *ngFor="let userComment of arrayComentario"
@@ -70,25 +70,17 @@
                 <strong class="username">{{ userComment.username }}</strong>
                 {{ userComment.comment }}
               </div>
+              <button
+                *ngIf="
+                  loginService.isLoggedIn() &&
+                  loginService.getUserRol() === 'ADMIN'
+                "
+                class="btn btn-danger float-end"
+                (click)="deleteComent(userComment.id)"
+              >
+                Eliminar
+              </button>
               <hr class="comment-divider" />
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div *ngIf="arrayComentario.length > 0">
-            <div *ngFor="let userComment of arrayComentario">
-              <div>
-                <button
-                  *ngIf="
-                    loginService.isLoggedIn() &&
-                    loginService.getUserRol() === 'ADMIN'
-                  "
-                  class="btn btn-danger float-end"
-                  (click)="deleteComent(userComment.id)"
-                >
-                  Eliminar
-                </button>
-              </div>
             </div>
           </div>
         </div>
