@@ -22,13 +22,14 @@
         >
         <input
           class="form-control"
-          type="number"
+          type="text"
           id="telefono"
           name="telefono"
           formControlName="phoneCita"
+          pattern="[0-9]+"
         /><br />
         <div *ngIf="isFieldInvalid('phoneCita')" class="text-danger">
-          Telefono es requerido.
+          Telefono no valido.
         </div>
         <br />
 
