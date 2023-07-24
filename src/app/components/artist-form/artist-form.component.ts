@@ -65,10 +65,15 @@ export class ArtistFormComponent implements OnInit {
     const tatuador = this.tattoMakerCreate();
     let file: File;
     const imageInput = document.getElementById('formFile') as HTMLInputElement;
-    if (imageInput.files) {
-      //TODO: Arreglar cuando no se carga una imagen, no llamar al service.
-      file = imageInput.files[0];
+
+    if (!imageInput.files || imageInput.files.length === 0) {
+      this.callToastrErrorForm('Imagen obligatoria.');
+      return;
     }
+    // if (imageInput.files) {
+    //   //TODO: Arreglar cuando no se carga una imagen, no llamar al service.
+    //   file = imageInput.files[0];
+    // }
 
     this.artistsService.createArtist(tatuador).subscribe(
       (response: ResponseModal) => {
@@ -126,5 +131,19 @@ export class ArtistFormComponent implements OnInit {
       progressBar: true,
     };
     this.toastr.success(mensaje, '', toastrConfig);
+  }
+  callToastrErrorForm(mensaje: string) {
+    const toastrConfig: Partial<IndividualConfig> = {
+      progressBar: true,
+    };
+    this.toastr.error(mensaje, '', toastrConfig);
+  }
+  isFieldInvalid(fieldName: string) {
+    const field = this.form.get(fieldName);
+    return field?.invalid && (field.dirty || field.touched);
+  }
+
+  isFormValid() {
+    return this.form.dirty && this.form.valid;
   }
 }
