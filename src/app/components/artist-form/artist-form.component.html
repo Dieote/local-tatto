@@ -6,7 +6,7 @@
     <form [formGroup]="form">
       <div class="input-group mb-3">
         <label class="input-group-text" id="basic-addon1" for="nombre"
-          >Nombre Completo:</label
+          ><span class="asteriscoValid">*</span>Nombre Completo:</label
         >
         <input
           class="form-control"
@@ -14,7 +14,11 @@
           id="nombre"
           name="nombre"
           formControlName="nameForm"
+          required
         />
+      </div>
+      <div *ngIf="isFieldInvalid('nameForm')" class="text-danger">
+        Nombre es requerido.
       </div>
       <br />
       <div class="input-group">
@@ -31,7 +35,7 @@
       <br />
       <div class="input-group mb-3">
         <label class="input-group-text" id="basic-addon1" for="telefono"
-          >Teléfono:</label
+          ><span class="asteriscoValid">*</span>Teléfono:</label
         >
         <input
           class="form-control"
@@ -39,7 +43,9 @@
           id="telefono"
           name="telefono"
           formControlName="phoneForm"
+          required
         />
+
         <span class="input-group-text">Horarios</span>
         <input
           class="form-control"
@@ -50,18 +56,26 @@
           formControlName="availableForm"
         />
       </div>
+      <div *ngIf="isFieldInvalid('phoneForm')" class="text-danger">
+        Telefono es requerido.
+      </div>
       <br />
-
       <br />
       <div class="mb-3">
-        <label for="imagen" class="form-label">Cargar imagen: </label>
+        <label for="imagen" class="form-label"
+          ><span class="asteriscoValid">*</span>Cargar imagen:
+        </label>
         <input
           class="form-control"
           type="file"
           id="formFile"
           name="image"
           formControlName="imageForm"
+          required
         />
+      </div>
+      <div *ngIf="isFieldInvalid('imageForm')" class="text-danger">
+        Imagen requerida.
       </div>
       <br />
       <button
@@ -69,6 +83,7 @@
         type="submit"
         (click)="addTattoMaker()"
         class="btn btn-primary"
+        [disabled]="!isFormValid()"
       >
         Guardar
       </button>
