@@ -6,6 +6,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IndividualConfig, ToastrService } from 'ngx-toastr';
 import { ResponseModal } from 'src/app/modal/response.modal';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { MediaService } from 'src/app/services/media.service';
 
 @Component({
   selector: 'app-artist-form',
@@ -15,13 +17,16 @@ import { ResponseModal } from 'src/app/modal/response.modal';
 export class ArtistFormComponent implements OnInit {
   artistas: TattoMaker[] = [];
   artistaDataLoad: boolean = false;
+  loadedImageURL: SafeUrl | undefined;
 
   idAuthor: number = 0;
   constructor(
     private artistsService: ArtistsService,
+    private mediaService: MediaService,
     private route: ActivatedRoute,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) {}
 
   form = new FormGroup({
@@ -55,9 +60,19 @@ export class ArtistFormComponent implements OnInit {
       this.form
         .get('descriptionForm')
         ?.patchValue(artistById?.description || '');
-      this.form.get('imageForm')?.patchValue(artistById?.imageName || '');
       this.form.get('phoneForm')?.patchValue(artistById?.phone || '');
       this.form.get('availableForm')?.patchValue(artistById?.available || '');
+
+      //obtener imagen
+      this.mediaService.getImageByName(artistById?.imageName || '').subscribe(
+        (blob: Blob) => {
+          const objUrl = URL.createObjectURL(blob);
+          this.loadedImageURL = this.sanitizer.bypassSecurityTrustUrl(objUrl);
+        },
+        (error) => {
+          console.error('Error al cargar imagen: ', error);
+        }
+      );
     });
   }
 
@@ -70,19 +85,17 @@ export class ArtistFormComponent implements OnInit {
       this.callToastrErrorForm('Imagen obligatoria.');
       return;
     }
-    // if (imageInput.files) {
-    //   //TODO: Arreglar cuando no se carga una imagen, no llamar al service.
-    //   file = imageInput.files[0];
-    // }
+    if (imageInput.files) {
+      file = imageInput.files[0];
+    }
 
     this.artistsService.createArtist(tatuador).subscribe(
       (response: ResponseModal) => {
         if (response.status === 'OK') {
           console.log('Se creo el artista', response.message);
-
-          this.uploadImage(response.id, file);
-          this.callToastrSuccesForm('Artista creado correctamente.');
-          this.router.navigate(['artists']);
+          if (file) {
+            this.uploadImage(response.id, file);
+          }
         } else {
           console.error('Error al crear la imagen:', response.message);
         }
@@ -91,14 +104,14 @@ export class ArtistFormComponent implements OnInit {
         console.error('Error al crear el artista', error);
       }
     );
-    this.router.navigate(['artists']);
   }
 
   private uploadImage(artistaId: number, imageFile: File) {
     this.artistsService
       .uploadImageArtist(artistaId, imageFile)
       .subscribe((response) => {
-        console.log('Imagen cargada correctamente:', response);
+        this.callToastrSuccesForm('Artista creado correctamente.');
+        this.router.navigate(['artists']);
       });
   }
 
@@ -145,5 +158,26 @@ export class ArtistFormComponent implements OnInit {
 
   isFormValid() {
     return this.form.dirty && this.form.valid;
+  }
+
+  // Metodo para manejar la selección de la imagen
+  handleImageInputChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+
+    if (file) {
+      this.mediaService.uploadFile(file).subscribe((response) => {
+        // trae url de imagen relacionada
+        const objectURL = URL.createObjectURL(file);
+        this.loadedImageURL = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+      });
+    }
+  }
+
+  // Metodo elimina la imagen cargada
+  removeLoadedImage() {
+    this.loadedImageURL = undefined;
+    const input = document.getElementById('formFile') as HTMLInputElement;
+    input.value = ''; // Para borrar el nombre del archivo seleccionado en el input de tipo file
   }
 }

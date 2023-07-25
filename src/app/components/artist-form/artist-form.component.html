@@ -2,8 +2,8 @@
   <h1>Formulario Artistas</h1>
   <hr />
   <div class="row align-items-center">
-    <!-- <form (ngSubmit)="addTattoMaker()">  es lo mismo esto que poner click?-->
     <form [formGroup]="form">
+      <br />
       <div class="input-group mb-3">
         <label class="input-group-text" id="basic-addon1" for="nombre"
           ><span class="asteriscoValid">*</span>Nombre Completo:</label
@@ -20,7 +20,6 @@
       <div *ngIf="isFieldInvalid('nameForm')" class="text-danger">
         Nombre es requerido.
       </div>
-      <br />
       <div class="input-group">
         <label class="input-group-text" for="descripcion">Descripcion:</label>
         <textarea
@@ -61,22 +60,39 @@
       </div>
       <br />
       <br />
-      <div class="mb-3">
-        <label for="imagen" class="form-label"
-          ><span class="asteriscoValid">*</span>Cargar imagen:
-        </label>
-        <input
-          class="form-control"
-          type="file"
-          id="formFile"
-          name="image"
-          formControlName="imageForm"
-          required
-        />
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="imagen" class="form-label">
+                <span class="asteriscoValid">*</span>Cargar imagen:
+              </label>
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                name="image"
+                formControlName="imageForm"
+                (change)="handleImageInputChange($event)"
+                required
+              />
+            </div>
+            <div *ngIf="isFieldInvalid('imageForm')" class="text-danger">
+              Imagen requerida.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div *ngIf="loadedImageURL" class="text-center">
+              <img
+                [src]="loadedImageURL"
+                class="img-thumbnail"
+                alt="Vista previa de la imagen cargada"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-      <div *ngIf="isFieldInvalid('imageForm')" class="text-danger">
-        Imagen requerida.
-      </div>
+
       <br />
       <button
         *ngIf="!artistaDataLoad"

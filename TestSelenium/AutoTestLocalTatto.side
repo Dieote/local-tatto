@@ -1,0 +1,497 @@
+{
+  "id": "940ce8ad-5bbe-4422-bbde-2b7f210e2376",
+  "version": "2.0",
+  "name": "AutoTestLocalTatto",
+  "url": "https://local-tatto-one.vercel.app",
+  "tests": [{
+    "id": "ff411d36-bf93-4bc8-8305-ff5394867558",
+    "name": "Formularios Log-In - Cita - Commentarios",
+    "commands": [{
+      "id": "42d9b73c-17ef-4087-a80d-cb59b13ce8e0",
+      "comment": "",
+      "command": "open",
+      "target": "/home?vercelToolbarCode=e7UCWuViK6fNqdg",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "50d4a736-24df-49e3-b214-59706dae9149",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "825x677",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e44e14a0-a17b-43ab-ac59-e0dac8b3f879",
+      "comment": "",
+      "command": "click",
+      "target": "css=.carousel-control-next-icon",
+      "targets": [
+        ["css=.carousel-control-next-icon", "css:finder"],
+        ["xpath=//div[@id='carouselExampleCaptions']/button[2]/span", "xpath:idRelative"],
+        ["xpath=//button[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "56838a0d-2105-4bf9-8d95-10fe33742918",
+      "comment": "",
+      "command": "click",
+      "target": "css=.carousel-control-next-icon",
+      "targets": [
+        ["css=.carousel-control-next-icon", "css:finder"],
+        ["xpath=//div[@id='carouselExampleCaptions']/button[2]/span", "xpath:idRelative"],
+        ["xpath=//button[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5715ffb-9f8d-472f-aaa3-b94e28b6c414",
+      "comment": "",
+      "command": "click",
+      "target": "css=.carousel-control-next-icon",
+      "targets": [
+        ["css=.carousel-control-next-icon", "css:finder"],
+        ["xpath=//div[@id='carouselExampleCaptions']/button[2]/span", "xpath:idRelative"],
+        ["xpath=//button[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "193c9ba5-eae5-4cbc-93dc-4c865ac92420",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.text-body-emphasis",
+      "targets": [],
+      "value": "¡Bienvenido a Tatto-Art.E!"
+    }, {
+      "id": "f4e500a6-620a-4409-a163-503a05d8abc6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fst-italic",
+      "targets": [
+        ["css=.fst-italic", "css:finder"],
+        ["xpath=//app-artist/div/h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Artistas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5abd6916-92a1-4039-abf1-626b98781609",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Estudio",
+      "targets": [
+        ["linkText=Estudio", "linkText"],
+        ["css=.navbar-nav > .nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Estudio')]", "xpath:link"],
+        ["xpath=//div[@id='navbarNav']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/estudio')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Estudio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "89e02512-1ab7-4c97-8d28-e60d959535e0",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.col-4",
+      "targets": [],
+      "value": "Enfocados a crear obras de arte!!"
+    }, {
+      "id": "a9958050-daea-4386-9e7f-730de0dc26ba",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Agenda",
+      "targets": [
+        ["linkText=Agenda", "linkText"],
+        ["css=.navbar-nav > .nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Agenda')]", "xpath:link"],
+        ["xpath=//div[@id='navbarNav']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/schedule')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Agenda')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea61e348-043f-443f-b07d-034e051a50e5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.text-center:nth-child(1)",
+      "targets": [],
+      "value": "Listado de Citas"
+    }, {
+      "id": "261a635f-9171-4f28-89d0-bd51fedf6925",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Comentarios",
+      "targets": [
+        ["linkText=Comentarios", "linkText"],
+        ["css=.nav-item:nth-child(2) > .px-2", "css:finder"],
+        ["xpath=//a[contains(text(),'Comentarios')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/coments')]", "xpath:href"],
+        ["xpath=//app-footer/div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Comentarios')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2d08282-7c8f-45c5-92be-b4464517172a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Contacto",
+      "targets": [
+        ["linkText=Contacto", "linkText"],
+        ["css=.link-secondary", "css:finder"],
+        ["xpath=//a[contains(text(),'Contacto')]", "xpath:link"],
+        ["xpath=//div[@id='navbarNav']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/admin')])[2]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Contacto')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ca215f3-93e2-4f61-9887-8d8bb6773063",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-primary",
+      "targets": [
+        ["css=.btn-outline-primary", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b251d23-2dce-4662-8e68-9c1b5e7c02bb",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.mb-3:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//div[@id='exampleModal']/div/div/div[2]/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e3789bd-e985-4e8d-ae9d-19a915bf1316",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.ng-valid", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//div[@id='exampleModal']/div/div/div[2]/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Artista"
+    }, {
+      "id": "777e8f2e-0974-4498-b70c-2978f0ed05f9",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.ng-untouched", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='exampleModal']/div/div/div[2]/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7e976ba-8616-4a6f-80f8-e25fa5b36324",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.ng-untouched", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='exampleModal']/div/div/div[2]/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "8bc55659-588a-4b13-8373-615ddfaf5eea",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='exampleModal']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae2df8f2-b0e5-4414-bee2-28dee4c9a12c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Cita",
+      "targets": [
+        ["linkText=Cita", "linkText"],
+        ["css=.col-12:nth-child(1) .btn-warning", "css:finder"],
+        ["xpath=//a[contains(text(),'Cita')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/date')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cita')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a2db34f-d065-403c-8bb2-3224f942be5d",
+      "comment": "",
+      "command": "click",
+      "target": "id=nombreCliente",
+      "targets": [
+        ["id=nombreCliente", "id"],
+        ["name=nombreCliente", "name"],
+        ["css=#nombreCliente", "css:finder"],
+        ["xpath=//input[@id='nombreCliente']", "xpath:attributes"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c413758d-a575-4201-a768-b5b09ff44ab9",
+      "comment": "",
+      "command": "type",
+      "target": "id=nombreCliente",
+      "targets": [
+        ["id=nombreCliente", "id"],
+        ["name=nombreCliente", "name"],
+        ["css=#nombreCliente", "css:finder"],
+        ["xpath=//input[@id='nombreCliente']", "xpath:attributes"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "John Lennon"
+    }, {
+      "id": "0a26d78f-d66f-4c28-955f-6ba3ab3d2612",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-text:nth-child(5)",
+      "targets": [
+        ["css=.input-group-text:nth-child(5)", "css:finder"],
+        ["xpath=//label[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "997cfa1e-b901-47e7-884b-8689b0e77873",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-6:nth-child(1)",
+      "targets": [
+        ["css=.col-md-6:nth-child(1)", "css:finder"],
+        ["xpath=//app-cita-form/div/form/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91155606-fbc4-46e7-a467-6879d2595e97",
+      "comment": "",
+      "command": "click",
+      "target": "id=telefono",
+      "targets": [
+        ["id=telefono", "id"],
+        ["name=telefono", "name"],
+        ["css=#telefono", "css:finder"],
+        ["xpath=//input[@id='telefono']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0759a38-8f69-406c-bbe1-c6987b5d4d5a",
+      "comment": "",
+      "command": "type",
+      "target": "id=telefono",
+      "targets": [
+        ["id=telefono", "id"],
+        ["name=telefono", "name"],
+        ["css=#telefono", "css:finder"],
+        ["xpath=//input[@id='telefono']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "99000"
+    }, {
+      "id": "1d583508-9870-4391-b27f-5f255eb25e1a",
+      "comment": "",
+      "command": "click",
+      "target": "id=artistaCita",
+      "targets": [
+        ["id=artistaCita", "id"],
+        ["name=artistaCita", "name"],
+        ["css=#artistaCita", "css:finder"],
+        ["xpath=//select[@id='artistaCita']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1f1105e-3956-43a8-b77c-99a4fbefd3fb",
+      "comment": "",
+      "command": "select",
+      "target": "id=artistaCita",
+      "targets": [],
+      "value": "label=William Kurts"
+    }, {
+      "id": "07fc537c-900a-4650-bb37-d6e01cc72185",
+      "comment": "",
+      "command": "click",
+      "target": "id=evening",
+      "targets": [
+        ["id=evening", "id"],
+        ["css=#evening", "css:finder"],
+        ["xpath=//input[@id='evening']", "xpath:attributes"],
+        ["xpath=//div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "86216bde-7075-444b-86dd-357ae7d1f038",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(14)",
+      "targets": [
+        ["css=.btn:nth-child(14)", "css:finder"],
+        ["xpath=//input[@value='Enviar']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18f649e7-3ca6-4730-8b81-2be610f52705",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-star-inserted:nth-child(7) .btn",
+      "targets": [
+        ["css=.ng-star-inserted:nth-child(7) .btn", "css:finder"],
+        ["xpath=//tr[7]/td[5]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d5ae531-8ab9-4e38-b658-ea52b9aa6675",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Comentarios",
+      "targets": [
+        ["linkText=Comentarios", "linkText"],
+        ["css=.nav-item:nth-child(2) > .px-2", "css:finder"],
+        ["xpath=//a[contains(text(),'Comentarios')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/coments')]", "xpath:href"],
+        ["xpath=//app-footer/div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Comentarios')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b988590a-e7a0-4c05-b18c-c7110bc8231b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-valid:nth-child(2)",
+      "targets": [
+        ["css=.ng-valid:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4539493e-c850-4c33-b3da-8b96af3556b3",
+      "comment": "",
+      "command": "type",
+      "target": "css=.ng-valid:nth-child(2)",
+      "targets": [
+        ["css=.ng-valid:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "Test Selenium"
+    }, {
+      "id": "8acd323b-9e96-4704-97fa-879c8de307ef",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-control:nth-child(3)",
+      "targets": [
+        ["css=.form-control:nth-child(3)", "css:finder"],
+        ["xpath=//textarea[@type='text']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Primer test a localTatto con selenium IDE"
+    }, {
+      "id": "3dfde299-8810-4954-83c5-830135e5b6ce",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-3",
+      "targets": [
+        ["css=.mt-3", "css:finder"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Enviar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "510485bf-852a-4317-a5a7-6840ac7985ef",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.mt-3",
+      "targets": [
+        ["css=.mt-3", "css:finder"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Enviar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1dd0558-ea3b-40c4-817f-a74573e32722",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.mt-3",
+      "targets": [
+        ["css=.mt-3", "css:finder"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Enviar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b10c967-0f72-4ee5-8e51-00dd96c43def",
+      "comment": "",
+      "command": "click",
+      "target": "css=.comment-container:nth-child(3) > .btn",
+      "targets": [
+        ["css=.comment-container:nth-child(3) > .btn", "css:finder"],
+        ["xpath=//div/div/div/div/div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79b4444b-8568-40bc-8b3b-52f950a98809",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Artistas",
+      "targets": [
+        ["linkText=Artistas", "linkText"],
+        ["css=.nav-item:nth-child(3) > .px-2", "css:finder"],
+        ["xpath=//a[contains(text(),'Artistas')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/artists')]", "xpath:href"],
+        ["xpath=//app-footer/div/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Artistas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9bb99ed0-843a-4978-b5e0-cd8ea6038e70",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,751)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c3cf8320-5577-4c10-918f-f977364ba426",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-primary",
+      "targets": [
+        ["css=.btn-outline-primary", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cerrar sesion')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7d6a2bd5-9011-49e8-8a26-1b65ac38fb5e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ff411d36-bf93-4bc8-8305-ff5394867558"]
+  }],
+  "urls": ["https://local-tatto-one.vercel.app/"],
+  "plugins": []
+}
