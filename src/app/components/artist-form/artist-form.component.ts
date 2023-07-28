@@ -18,6 +18,8 @@ export class ArtistFormComponent implements OnInit {
   artistas: TattoMaker[] = [];
   artistaDataLoad: boolean = false;
   loadedImageURL: SafeUrl | undefined;
+  selectedImageFile: File | undefined;
+  uuid: string = '';
 
   idAuthor: number = 0;
   constructor(
@@ -56,6 +58,7 @@ export class ArtistFormComponent implements OnInit {
     this.artistsService.getArtists().subscribe((tatuadores) => {
       let artistById = tatuadores.find((data) => data.id == this.idAuthor);
 
+      this.uuid = artistById?.imageUuid || '';
       this.form.get('nameForm')?.patchValue(artistById?.name || '');
       this.form
         .get('descriptionForm')
@@ -115,13 +118,38 @@ export class ArtistFormComponent implements OnInit {
       });
   }
 
-  editTattoMaker(): void {
+  editTattoMaker() {
+    const imageInput = document.getElementById('formFile') as HTMLInputElement;
     let artista = this.tattoMakerCreate(this.idAuthor);
-    this.callToastrSuccesForm('Artista editado correctamente.');
-    this.artistsService.updateArtist(artista).subscribe(() => {
-      this.getArtisList();
-      this.router.navigate(['artists']);
-    });
+
+    if (imageInput.files && imageInput.files.length > 0) {
+      this.selectedImageFile = imageInput.files[0];
+      this.updateArtistData(artista, this.selectedImageFile);
+    } else {
+      this.updateArtistData(artista);
+    }
+  }
+  private updateArtistData(artista: TattoMaker, file?: File) {
+    this.artistsService.updateArtist(artista).subscribe(
+      (response) => {
+        if (response.status === 'OK') {
+          if (file) {
+            this.mediaService
+              .updateImage(artista.imageUuid, this.selectedImageFile!)
+              .subscribe((response) => {
+                this.router.navigate(['artists']);
+                this.callToastrSuccesForm('Artista editado correctamente.');
+              });
+          }
+        } else {
+          this.callToastrErrorForm('Error al actualizar artista.');
+        }
+      },
+      (error) => {
+        console.error('Error al actualizar artista:', error);
+        this.callToastrErrorForm('Error al actualizar artista.');
+      }
+    );
   }
 
   private tattoMakerCreate(id?: number): TattoMaker {
@@ -130,6 +158,7 @@ export class ArtistFormComponent implements OnInit {
       this.form.value.nameForm || '',
       this.form.value.descriptionForm || '',
       this.form.value.imageForm || '',
+      this.uuid,
       this.form.value.phoneForm || '',
       this.form.value.availableForm || ''
     );
@@ -159,7 +188,7 @@ export class ArtistFormComponent implements OnInit {
   isFormValid() {
     return this.form.dirty && this.form.valid;
   }
-
+  /*
   // Metodo para manejar la selección de la imagen
   handleImageInputChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -179,5 +208,5 @@ export class ArtistFormComponent implements OnInit {
     this.loadedImageURL = undefined;
     const input = document.getElementById('formFile') as HTMLInputElement;
     input.value = ''; // Para borrar el nombre del archivo seleccionado en el input de tipo file
-  }
+  } */
 }

@@ -34,4 +34,13 @@ export class MediaService {
   deleteImage(uuid: string): Observable<any> {
     return this.http.delete<void>(`${this.urlBase}/media/delete-image/${uuid}`);
   }
+
+  updateImage(uuid: string, file: File): Observable<ImageModal> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<ImageModal>(
+      `${this.urlBase}/media/update-image/${uuid}`,
+      formData
+    );
+  }
 }

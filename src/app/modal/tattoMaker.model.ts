@@ -3,6 +3,7 @@ export class TattoMaker {
   name: string;
   description: string;
   imageName: string;
+  imageUuid: string;
   phone: string;
   available: string;
   constructor(
@@ -10,6 +11,7 @@ export class TattoMaker {
     name: string,
     description: string,
     imageName: string,
+    imageUuid: string,
     phone: string,
     available: string
   ) {
@@ -17,6 +19,7 @@ export class TattoMaker {
     this.name = name;
     this.description = description;
     this.imageName = imageName;
+    this.imageUuid = imageUuid;
     this.phone = phone;
     this.available = available;
   }
