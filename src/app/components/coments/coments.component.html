@@ -83,6 +83,9 @@
               <hr class="comment-divider" />
             </div>
           </div>
+          <div *ngIf="arrayComentario.length === 0" class="text-center mt-5">
+            <p>No se han cargado comentarios.</p>
+          </div>
         </div>
       </div>
     </div>
