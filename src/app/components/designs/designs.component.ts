@@ -26,12 +26,7 @@ export class DesignsComponent {
     const fileInput = document.getElementById('image') as HTMLInputElement;
     const file = fileInput.files ? fileInput.files[0] : null;
     if (file) {
-      const formImage = new FormData();
-      formImage.append('file', file);
-      this.mediaService.uploadFile(file).subscribe((response) => {
-        this.loadImages(file);
-        this.callToastrSuccess('Imagen cargada correctamente.', 'Éxito');
-      });
+      this.loadImages(file);
     }
   }
 
@@ -75,7 +70,7 @@ export class DesignsComponent {
     console.log('Uuid:', uuid);
     this.mediaService.deleteImage(uuid).subscribe(
       () => {
-        this.images = this.images.filter((image) => image.uuid == uuid);
+        this.images = this.images.filter((image) => image.uuid !== uuid);
         this.callToastrSuccess('Imagen eliminada correctamente.', 'Éxito');
       },
       (error: any) => {
