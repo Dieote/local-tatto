@@ -188,7 +188,7 @@ export class ArtistFormComponent implements OnInit {
   isFormValid() {
     return this.form.dirty && this.form.valid;
   }
-  /*
+
   // Metodo para manejar la selección de la imagen
   handleImageInputChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -208,5 +208,5 @@ export class ArtistFormComponent implements OnInit {
     this.loadedImageURL = undefined;
     const input = document.getElementById('formFile') as HTMLInputElement;
     input.value = ''; // Para borrar el nombre del archivo seleccionado en el input de tipo file
-  } */
+  }
 }

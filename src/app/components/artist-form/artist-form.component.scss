@@ -7,12 +7,26 @@ button{
 form{
   background-color: var(--second-bg-color);
 }
-img{
-  max-width: 200px;
-}
 .input-group-text{
   background-color: var(--main-color);
 }
 h1{
   color: var(--second-bg-color);
+}
+.image-container {
+  width: 45%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  transition: .8s ease;
+}
+.image-container:hover {
+  transform: scale(1.1);
 }

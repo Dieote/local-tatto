@@ -26,10 +26,6 @@ div.gallery {
   margin: 5px auto;
   width: 90%;
 }
-div.gallery:hover {
-  border: 1px solid #f0f0f0;
-}
-
 div.gallery img {
   display: block;
   margin-left: auto;
@@ -40,19 +36,16 @@ div.gallery img {
   transition: transform 0.3s;
   border: 2px solid #131212;
 }
-
 div.gallery img:hover {
   transform: scale(1.1);
   border-color: var(--main-color);
 }
-
 .center {
   text-align: center;
 }
 .image-wrapper {
   position: relative;
 }
-
 .delete-button {
   position: absolute;
   top: 5px;

@@ -74,18 +74,17 @@
                 name="image"
                 formControlName="imageForm"
                 required
+                (change)="handleImageInputChange($event)"
               />
-              <!-- (change)="handleImageInputChange($event)" esta linea va dentro del input-->
             </div>
             <div *ngIf="isFieldInvalid('imageForm')" class="text-danger">
               Imagen requerida.
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 image-container">
             <div *ngIf="loadedImageURL" class="text-center">
               <img
                 [src]="loadedImageURL"
-                class="img-thumbnail"
                 alt="Vista previa de la imagen cargada"
               />
             </div>
