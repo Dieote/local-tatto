@@ -2,67 +2,61 @@ button{
   margin-left: 5%;
   margin-top: -20px;
 }
-
-* {
-  margin: 10px;
-}
-
 h2 {
   text-align: center;
+  color: var(--second-bg-color);
 }
-
 h4 {
-  margin: 7px 7px 7px 55px;
+  margin: 0 55px 20px 55px;
   text-decoration: underline solid 1px;
+  color: var(--second-bg-color);
+  font-size: 2.8rem;
 }
-
 .input-group {
   width: 95%;
 }
-
-.container {
-  margin: auto;
+.fondo{
+  background-color: var(--second-bg-color);
 }
-#label-contact {
+.opinion-box{
+  background-color: var(--second-bg-color);
+  transition: .8s ease;
+  width: 80%;
+  margin-left: 10%;
+}
+.opinion-box:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 20px 0 var(--main-color);
+}
+label {
   text-align: left;
   padding: 3px;
   margin-top: 24px;
-}
-
-.col-md-2 {
-    width: 4.666667%;
+  font-size: 1.8rem;
 }
 .btn-danger {
   --bs-btn-line-height: 14.5px;
 }
-.comment-container {
-  margin-bottom: 10px;
-}
-
 .username {
-  color: blue;
+  color: var(--main-color);
 }
-.centered {
-  text-align: center;
+.comment-container {
+  margin-top: 1rem;
+  margin-left: 20%;
+  margin-right: 20%;
 }
-.muted {
-  opacity: 0.5;
-  color: gray;
-}
-
 .comment-divider {
-  margin-top: 10px;
   margin-bottom: 10px;
+  border: 1px solid var(--main-color);
+}
+.pattern{
+  background-color: var(--main-color);
+  padding: 0;
+  margin: 0 0 10px 0;
+  height: 10vh;
+  background-image: repeating-linear-gradient(
+    45deg, var(--bg-color) 0, #746969 20px,
+    transparent 20px, transparent 40px
+  );
 }
 
-.centered {
-  text-align: center;
-}
-
-.guarda {
-  background-repeat: repeat-x;
-  height: auto;
-  margin-bottom: -25px;
-}
-.fondo{
-  background: linear-gradient(to right, #ffffff, #bbe5f5, #ffff);}

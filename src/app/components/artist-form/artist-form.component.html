@@ -64,7 +64,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
-              <label for="imagen" class="form-label">
+              <label for="imagen" class="form-label input-group-text">
                 <span class="asteriscoValid">*</span>Cargar imagen:
               </label>
               <input
@@ -74,18 +74,17 @@
                 name="image"
                 formControlName="imageForm"
                 required
+                (change)="handleImageInputChange($event)"
               />
-              <!-- (change)="handleImageInputChange($event)" esta linea va dentro del input-->
             </div>
             <div *ngIf="isFieldInvalid('imageForm')" class="text-danger">
               Imagen requerida.
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 image-container">
             <div *ngIf="loadedImageURL" class="text-center">
               <img
                 [src]="loadedImageURL"
-                class="img-thumbnail"
                 alt="Vista previa de la imagen cargada"
               />
             </div>
@@ -98,7 +97,7 @@
         *ngIf="!artistaDataLoad"
         type="submit"
         (click)="addTattoMaker()"
-        class="btn btn-primary"
+        class="btn btn-orange"
         [disabled]="!isFormValid()"
       >
         Guardar
@@ -107,7 +106,7 @@
         *ngIf="artistaDataLoad"
         type="submit"
         (click)="editTattoMaker()"
-        class="btn btn-primary"
+        class="btn btn-orange"
       >
         Editar
       </button>

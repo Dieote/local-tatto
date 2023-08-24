@@ -89,7 +89,7 @@
         </div>
         <br />
         <input
-          class="btn btn-primary"
+          class="btn btn-orange"
           type="submit"
           value="Enviar"
           [disabled]="!isFormValid()"
@@ -110,7 +110,7 @@
             </p>
           </div>
           <div *ngIf="!tatuadorSeleccionado">
-            <p>No se ha seleccionado ningún artista.</p>
+            <p class="offselect">No se ha seleccionado ningún artista.</p>
             <img src="assets/ArtistNull.jpeg" alt="Imagen no encontrada" />
           </div>
         </div>

@@ -1,24 +1,54 @@
 .header-style {
-  background: linear-gradient(to right, #ffffff, #bbe5f5, #ffff);
-  padding-left: 10px;
-  padding-right: 10px;
+  background: var(--second-bg-color);
+  width: 100%;
 }
-
+.nav-link{
+  color: var(--text-color);
+}
+.nav-link:hover{
+  color: var(--main-color);
+}
+.buttons-container{
+  position: absolute;
+  top: 25%;
+  right: 5%;
+}
+.navbar-brand {
+  color: var(--text-color);
+  font-size: 2rem;
+}
+#navbarNav{
+  color: var(--text-color);
+  margin-left: 15%;
+}
+.navbar-brand i {
+  margin-left: 5px;
+  font-size: 2rem;
+  color: var(--main-color);
+}
+.navbar-toggler{
+  margin-right: 45%;
+}
+.modal-header{
+  border-bottom: 3px solid var(--main-color);
+}
 .header-login {
-  background: linear-gradient(to left, #c7e9f5, #ffffff, #c7e9f5);
-  padding-left: 10px;
   padding-right: 10px;
+  color: var(--main-color);
+}
+.form-label {
+  color: var(--second-bg-color);
 }
 .centered {
   text-align: center;
 }
-
 .modal-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-top: 1.5px solid var(--second-bg-color);
 }
 .muted {
-  opacity: 0.5;
-  color: gray;
+  opacity: 1;
+  color: rgba(101, 99, 99, 0.606);
 }

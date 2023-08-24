@@ -1,11 +1,20 @@
+h3{
+  color: var(--second-bg-color);
+}
 p {
   text-align: center;
+  color: var(--second-bg-color);
+}
+thead{
+  border-bottom: 1px solid var(--main-color);
+}
+.table-bordered tbody tr:hover {
+  background-color:#ff866b;
 }
 .img-custom {
   background-color: #d7e0f1;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .muted {
   opacity: 0.5;
   color: gray;

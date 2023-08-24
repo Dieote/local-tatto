@@ -6,10 +6,8 @@
   compartir imágenes de los tatuajes que han realizado.
 </p>
 <br />
-<br />
-<div class="album py-5 bg-light">
+<div class="album py-5">
   <br />
-
   <div class="d-flex justify-content-center">
     <form
       class="w-50"
@@ -19,7 +17,9 @@
       "
     >
       <div class="mb-5">
-        <label for="image" class="form-label">Cargar nueva imagen:</label>
+        <label for="image" class="form-label input-group-text"
+          >Cargar nueva imagen:</label
+        >
         <div class="input-group">
           <input
             class="form-control"
@@ -30,7 +30,7 @@
           />
           <button
             type="submit"
-            class="btn btn-primary ms-2"
+            class="btn btn-orange ms-2"
             (click)="saveImage()"
           >
             Guardar
@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <div *ngIf="images.length === 0" class="text-center mt-5">
+  <div *ngIf="images.length === 0" class="text-center mt-5 muted">
     <p>No se han cargado imágenes.</p>
   </div>
 </div>

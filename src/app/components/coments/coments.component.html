@@ -1,92 +1,86 @@
 <div class="mx-auto">
   <h2 class="fw-bolder text-center">
-    ¡Nos encantaría escuchar tu experiencia en Tatto-Art.E!
+    ¡Nos encantaría conocer tu experiencia en Tatto-Art.E!
   </h2>
   <br />
-  <p class="text-center fs-5 container">
+  <p class="text-center fs-5 opinion-box">
     Tu opinión es invaluable para nosotros y nos ayuda a seguir mejorando y
     brindando un servicio excepcional a nuestros clientes. Si has tenido la
     oportunidad de visitarnos, te invitamos a compartir tus pensamientos,
     impresiones y elogios sobre nuestro equipo de artistas, la calidad de los
     tatuajes y la atención al cliente.
   </p>
-  <div class="guarda text-center">
-    <img src="../../assets/guarda.png" alt="guarda" />
-    <img src="../../assets/guarda.png" alt="guarda" />
-  </div>
-  <div class="row align-items-center fondo">
-    <div class="col-md-6 mx-auto">
-      <div class="input-group mb-3">
-        <form [formGroup]="form">
-          <div class="mb-3">
-            <label><strong>Tu nombre:</strong></label>
-            <input
-              formControlName="formUsername"
-              type="text"
-              class="form-control"
-            />
-          </div>
-          <label id="label-contact"
-            ><strong>Describe tu experiencia:</strong></label
-          >
-          <textarea
-            formControlName="formComentario"
-            placeholder="Tu opinión nos importa..."
-            class="form-control"
-            aria-label="with-textarea"
+  <div class="pattern"></div>
+</div>
+<div class="row align-items-center fondo">
+  <div class="col-md-6 mx-auto">
+    <div class="input-group mb-3">
+      <form [formGroup]="form">
+        <div class="mb-3">
+          <label><strong>Tu nombre:</strong></label>
+          <input
+            formControlName="formUsername"
             type="text"
-            rows="3"
-            cols="70"
-          ></textarea>
-          <button
-            class="btn btn-primary mt-3"
-            *ngIf="loginService.isLoggedIn()"
-            (click)="sendComent()"
-          >
-            Enviar
-          </button>
-          <p
-            class="text-center mt-3 text-muted"
-            *ngIf="!loginService.isLoggedIn()"
-          >
-            Inicia sesión para realizar el comentario.
-          </p>
-        </form>
-      </div>
+            class="form-control"
+          />
+        </div>
+        <label id="label-contact"
+          ><strong>Describe tu experiencia:</strong></label
+        >
+        <textarea
+          formControlName="formComentario"
+          placeholder="Tu opinión nos importa..."
+          class="form-control"
+          aria-label="with-textarea"
+          type="text"
+          rows="3"
+          cols="70"
+        ></textarea>
+        <button
+          class="btn btn-orange mt-3"
+          *ngIf="loginService.isLoggedIn()"
+          (click)="sendComent()"
+        >
+          Enviar
+        </button>
+        <p
+          class="text-center mt-3 text-muted"
+          *ngIf="!loginService.isLoggedIn()"
+        >
+          Inicia sesión para realizar el comentario.
+        </p>
+      </form>
     </div>
   </div>
-  <hr />
-  <div class="input-group mb-3">
-    <h4 class="text-center">Valoraciones</h4>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div *ngIf="arrayComentario.length > 0">
-            <div
-              *ngFor="let userComment of arrayComentario"
-              class="comment-container"
-            >
-              <div>
-                <strong class="username">{{ userComment.username }}</strong>
-                {{ userComment.comment }}
-              </div>
-              <button
-                *ngIf="
-                  loginService.isLoggedIn() &&
-                  loginService.getUserRol() === 'ADMIN'
-                "
-                class="btn btn-danger float-end"
-                (click)="deleteComent(userComment.id)"
-              >
-                Eliminar
-              </button>
-              <hr class="comment-divider" />
-            </div>
+</div>
+<hr />
+<h4 class="text-center">Valoraciones</h4>
+<div class="fondo">
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngIf="arrayComentario.length > 0">
+        <div
+          *ngFor="let userComment of arrayComentario"
+          class="comment-container"
+        >
+          <div>
+            <strong class="username">{{ userComment.username }}</strong>
+            {{ userComment.comment }}
           </div>
-          <div *ngIf="arrayComentario.length === 0" class="text-center mt-5">
-            <p>No se han cargado comentarios.</p>
-          </div>
+          <button
+            *ngIf="
+              loginService.isLoggedIn() && loginService.getUserRol() === 'ADMIN'
+            "
+            class="btn btn-danger float-end"
+            (click)="deleteComent(userComment.id)"
+          >
+            Eliminar
+          </button>
+          <hr class="comment-divider" />
         </div>
+      </div>
+      <div *ngIf="arrayComentario.length === 0" class="text-center mt-5">
+        <p>No se han cargado comentarios.</p>
       </div>
     </div>
   </div>

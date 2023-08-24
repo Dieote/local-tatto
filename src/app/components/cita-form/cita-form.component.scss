@@ -1,32 +1,37 @@
 #artistaCita{
   margin-left: 55%;
 }
-
-  .input-group-text input[type="checkbox"],
+.input-group-text input[type="checkbox"],
 .input-group-text label {
   display: inline-block;
   margin-right: 10px;
 }
-
+.input-group-text{
+  background-color: var(--main-color);
+}
 #citaDisponible{
   margin-right: 35%;
 }
-
 .tatuador-nombre {
-  font-size: 18px;
+  font-size: 3rem;
   font-weight: bold;
 }
-
 .tatuador-descripcion {
-  font-size: 16px;
+  font-size: 2rem;
   margin-bottom: 10px;
 }
-
 .tatuador-telefono {
-  font-size: 14px;
-  color: blue;
+  font-size: 1rem;
+}
+.offselect{
+  font-size: 1.5rem;
 }
 .asteriscoValid{
-  color: red;
+  color: var(--text-color);
 }
-
+h3{
+  color: var(--second-bg-color);
+}
+#rightSide{
+  background-color: var(--second-bg-color);
+}
