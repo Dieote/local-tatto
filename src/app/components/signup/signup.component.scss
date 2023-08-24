@@ -1,3 +1,40 @@
+h4{
+  background-color: var(--second-bg-color);
+  transition: .8s ease;
+  width: 90%;
+  margin-left: 5%;
+}
 .shadow-sign {
-  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--second-bg-color);
+    transition: .8s ease;
+  }
+.shadow-sign:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 0 var(--main-color);
+  }
+.icon h5{
+    color: var(--main-color);
+    transition: .3s ease;
+    font-size: 2rem
+  }
+.icon h5:hover{
+    transform: scale(1.1);
+  }
+.icon img{
+    transition: .3s ease;
+  }
+.icon img:hover{
+    transform: scale(1.1);
+  }
+.row{
+  margin: 2rem 0 2rem 0;
+  color: var(--second-bg-color);
+}
+.bottom-img img{
+  border: 2px solid var(--main-color);
+  transition: .7s ease;
+}
+
+.bottom-img img:hover{
+  transform: scale(1.1);
 }

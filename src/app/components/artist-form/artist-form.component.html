@@ -64,7 +64,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
-              <label for="imagen" class="form-label">
+              <label for="imagen" class="form-label input-group-text">
                 <span class="asteriscoValid">*</span>Cargar imagen:
               </label>
               <input
@@ -98,7 +98,7 @@
         *ngIf="!artistaDataLoad"
         type="submit"
         (click)="addTattoMaker()"
-        class="btn btn-primary"
+        class="btn btn-orange"
         [disabled]="!isFormValid()"
       >
         Guardar
@@ -107,7 +107,7 @@
         *ngIf="artistaDataLoad"
         type="submit"
         (click)="editTattoMaker()"
-        class="btn btn-primary"
+        class="btn btn-orange"
       >
         Editar
       </button>

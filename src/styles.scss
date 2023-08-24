@@ -1,1 +1,24 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  --bg-color: #d8d8d8b5;
+  --second-bg-color: #333333;
+  --text-color: #c8d8f4;
+  --main-color: #ff5733;
+
+}
+body{
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.btn-orange{
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+.btn-orange:hover{
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: #fff;
+}

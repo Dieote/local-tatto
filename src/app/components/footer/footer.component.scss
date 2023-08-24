@@ -1,3 +1,17 @@
+.text{
+  color: var(--second-bg-color);
+}
+.text:hover{
+  color: var(--main-color);
+}
+footer a img{
+  color: var(--main-color);
+}
 img {
   margin: 10px;
+}
+hr{
+  background-color: var(--main-color);
+  height: 3px;
+  opacity: 1;
 }

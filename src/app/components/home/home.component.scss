@@ -1,3 +1,7 @@
 .shadow-gray {
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--second-bg-color);
+  transition: .8s ease;
+}
+.shadow-gray:hover{
+  transform: scale(1.1);
 }

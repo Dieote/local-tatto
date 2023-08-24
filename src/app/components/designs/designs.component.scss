@@ -1,29 +1,31 @@
-.font-italic {
-  font-style: italic;
+h1{
+  color: var(--second-bg-color);
 }
-
-.text-center {
-  text-align: center;
-}
-
 .shadow-gray {
-  box-shadow: 0 0 20px 0 rgba(0, 0, 10, 0.2);
+  background-color: var(--second-bg-color);
+  transition: .8s ease;
   width: 70%;
   margin: 0 auto;
 }
+.shadow-gray:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 20px 0 var(--main-color);
+}
+label{
+  color: var(--second-bg-color);
+}
+.input-group-text{
+  background-color: var(--main-color);
+}
 .muted {
   opacity: 0.5;
-  color: gray;
+  color: var(--second-bg-color);
   text-align: center;
-
 }
-
-
 div.gallery {
   margin: 5px auto;
   width: 90%;
 }
-
 div.gallery:hover {
   border: 1px solid #f0f0f0;
 }
@@ -41,6 +43,7 @@ div.gallery img {
 
 div.gallery img:hover {
   transform: scale(1.1);
+  border-color: var(--main-color);
 }
 
 .center {

@@ -1,11 +1,38 @@
-.card-custom {
-  background-color: #d7e3ec;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+.container{
+  background-color: var(--second-bg-color);
+  padding-bottom: 1rem;
 }
-
+hr{
+  color: var(--main-color);
+}
+.card-container{
+  height: 32rem;
+  display: flex;
+  flex-direction: column;
+  transition: .8s ease;
+}
+.card-container:hover {
+  transform: scale(1.1);
+}
+.card-custom {
+  background-color: var(--bg-color);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .card-name {
   font-style: italic;
   font-size: 1.2rem;
+  text-align: center;
+}
+.card-button-container{
+  text-align: center;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  width: 100%;
 }
 .delete-button {
   position: absolute;
@@ -14,12 +41,17 @@
   z-index: 1;
 }
 .card-body {
-  min-height: 150px;
+  flex: 1;
+  overflow: hidden;
+  position:relative;
+  color: var(--second-bg-color);
+  display: flex;
+  flex-direction: column;
 }
-
-
 .img-thumbnail {
   width: 100%;
   height: 150px;
   object-fit: cover;
+  border: 0px solid var(--main-color);
+  background-color: var(--main-color);
 }

@@ -1,11 +1,18 @@
 button{
-  margin: 5px;
+  margin: 1rem;
 }
 .asteriscoValid{
-  color: red;
+  color: var(--text-color);
 }
 form{
-  background: linear-gradient(to right, #ffffff, #bbe5f5, #ffff);}
+  background-color: var(--second-bg-color);
+}
 img{
   max-width: 200px;
+}
+.input-group-text{
+  background-color: var(--main-color);
+}
+h1{
+  color: var(--second-bg-color);
 }

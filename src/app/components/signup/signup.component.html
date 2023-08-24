@@ -1,26 +1,23 @@
 <div class="bootstrap-wrapper">
-  <div class="container">
-    <h4 class="fst-italic text-center">
+  <div class="container text-center">
+    <h4 class="fst-italic">
       En Tatto-Art.E, no solo te ayudaremos a crear tatuajes excepcionales, sino
       que también te brindaremos un ambiente cálido y amigable donde te sentirás
       como en casa.
     </h4>
+  </div>
 
-    <div class="row" style="margin-top: 20px">
-      <div class="col-md-3 text-center d-flex align-items-center">
-        <img src="assets/estudio2.jpeg" width="200" height="200" />
-      </div>
-      <div class="col-md-6">
-        <div class="container text-center">
-          <img src="assets/icon.png" width="50" height="50" />
-        </div>
-        <h5 class="text-center">Registrate aquí</h5>
-        <br />
-        <br />
+  <div class="container text-center icon">
+    <img src="assets/icon.png" width="80" height="80" />
+    <h5>Registrate aquí</h5>
+  </div>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
         <form (ngSubmit)="formSubmit()">
           <div class="mb-3">
-            <label for="inputUsername" class="form-label" id="username"
+            <label for="inputUsername" class="form-label"
               >Nombre de Usuario</label
             >
             <input
@@ -33,7 +30,7 @@
             />
           </div>
           <div class="mb-3">
-            <label for="inputEmail1" class="form-label" id="email">Email</label>
+            <label for="inputEmail1" class="form-label">Email</label>
             <input
               [(ngModel)]="user.email"
               type="email"
@@ -45,9 +42,7 @@
             />
           </div>
           <div class="mb-3">
-            <label for="inputPassword1" class="form-label" id="password"
-              >Password</label
-            >
+            <label for="inputPassword1" class="form-label">Password</label>
             <input
               [(ngModel)]="user.password"
               type="password"
@@ -57,18 +52,26 @@
               placeholder="********"
             />
           </div>
-          <button type="submit" class="btn btn-primary">Registrarse</button>
+          <button type="submit" class="btn btn-orange">Registrarse</button>
         </form>
       </div>
-      <div class="col-md-3 text-center d-flex align-items-center">
-        <img src="assets/estudio3.jpeg" width="200" height="200" />
-      </div>
     </div>
-    <br />
-    <br />
-    <h5 class="fst-italic fw-lighter text-center shadow-sign font-monospace">
+  </div>
+
+  <div class="container text-center">
+    <h5 class="fst-italic fw-lighter shadow-sign font-monospace">
       Únete a nuestra comunidad y deja que la amistad y el arte se fusionen en
       tu piel.
     </h5>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-center bottom-img">
+        <img src="assets/estudio2.jpeg" width="200" height="200" />
+      </div>
+      <div class="col-md-6 text-center bottom-img">
+        <img src="assets/estudio3.jpeg" width="200" height="200" />
+      </div>
+    </div>
   </div>
 </div>
